@@ -31,115 +31,52 @@
                             <h4 class="panel-title">Users</h4>
                         </div>
                         <div class="panel-body">
+                            <?php echo $this->session->flashdata('success'); ?>
                             <table id="data-table" class="table table-striped table-bordered" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Position</th>
+                                        <th>Email Address</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td>4</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td>5</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td>5.5</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td>6</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td>7</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td>6</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.7</td>
-                                        <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
-                                 			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-default">
-                                 			<i class="fa fa-check"></i> Activate</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
-                                 			<i class="fa fa-times"></i> Deactivate</a>
-                             			</td>
-                                    </tr>
+                                    <?php foreach ($users as $user) { ?>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                <?php echo strtoupper($user->lname) . ', ' .ucfirst($user->fname) . ' ' . ucfirst($user->mname); ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    if ($user->status == 0) { ?>
+                                                        <span class="badge badge-danger">Inactive</span>
+                                                <?php } else {?>
+                                                        <span class="badge badge-success">Active</span>
+                                                <?php } ?>
+                                            </td>
+                                            <td><?php echo ucfirst($user->position); ?></td>
+                                            <td><?php echo $user->email; ?></td>
+                                            <td>
+                                            	<a href="<?php echo base_url();?>user/edit/<?php echo $user->user_id?>" class="btn btn-xs btn-success">
+                                     			<i class="fa fa-pencil"></i> Edit</a>
+                                                <?php
+                                                    if ($user->status == 0) {
+                                                        ?>
+                                                            <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
+                                                            <i class="fa fa-check"></i> Activate</a>
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                            <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
+                                                            <i class="fa fa-times"></i> Deactivate</a>
+                                                        <?php
+                                                    }
+                                                ?>
+                                 			</td>
+                                        </tr>
+                                    <?php } ?>
                                  </tbody>
                             </table>
                         </div>

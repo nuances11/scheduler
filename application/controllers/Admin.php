@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 	function __construct(){
         parent::__construct();
+        $this->load->model('user_model');
+
 
         $styles = array(
 
@@ -25,7 +27,13 @@ class Admin extends CI_Controller {
 	}
 
 	function users(){
+		$this->template->load_sub('users', $this->user_model->fetch_users());
 		$this->template->load('admin/users');
+	}
+
+	function edit_user($id){
+		$this->template->load_sub('user', $this->user_model->fetch_user($id));
+		$this->template->load('admin/edit_user');
 	}
 
 	function students(){
