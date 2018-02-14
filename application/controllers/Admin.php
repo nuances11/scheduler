@@ -63,4 +63,8 @@ class Admin extends CI_Controller {
 	function add_teacher(){
 		$this->template->load('admin/add_teacher');
 	}
+
+	function add_sample(){
+		
+	}
 }
