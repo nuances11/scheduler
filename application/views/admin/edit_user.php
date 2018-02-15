@@ -1,3 +1,4 @@
+<!-- Sample Edited Text -->
 <!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li><a href="<?php echo base_url(); ?>">Home</a></li>
