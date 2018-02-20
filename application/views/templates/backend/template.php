@@ -244,7 +244,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">
+	$('#studno').on('keypress', function(){
+        return  event.charCode >= 48 && event.charCode <= 57;
+    });
 
+	$(document).on('keyup', '#studno', function(){
+		//console.log($(this).val());
+		var keyword = $(this).val();
+
+		$.ajax({
+			url: 'http://localhost/scheduler1/student/checkno',
+			method: 'POST',
+			data: {'keyword': keyword},
+			dataType: 'JSON',
+			success: function(result){
+				$('#validate_sn').html(result.status);
+				if (result.status == 'Student number is already exist!') {
+					$('#submit_student').addClass('disabled');
+				} else {
+					$('#submit_student').removeClass('disabled');
+				}
+			}
+		});
+	});
+</script>
 </body>
 
 <!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Feb 2018 12:26:00 GMT -->

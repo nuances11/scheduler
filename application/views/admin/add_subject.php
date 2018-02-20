@@ -18,19 +18,27 @@
                             <h4 class="panel-title">Add New Subject</h4>
                         </div>
                         <div class="panel-body panel-form">
-                            <form class="form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+                        	<?php 
+                        		if (validation_errors()) {?>
+                        		<div class="alert alert-danger fade in m-b-15">
+									<strong>Error!</strong><br>
+									<?php echo validation_errors(); ?>
+									<span class="close" data-dismiss="alert">×</span>
+								</div>
+                        	<?php } ?>
+                            <form class="form-horizontal form-bordered" action="<?php echo base_url();?>subject/save" method="POST">
 
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="fullname">Subject Code:</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" id="fullname" name="subjectCode" placeholder="Subject Code" data-parsley-required="true" />
+										<input class="form-control" type="text" value="<?php echo set_value('subCode');?>" id="fullname" name="subCode" placeholder="Subject Code" data-parsley-required="true" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="fullname">Subject Name:</label>
 									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" id="fullname" name="subjectName" placeholder="Subject Name" data-parsley-required="true" />
+										<input class="form-control" type="text" value="<?php echo set_value('subName');?>" id="fullname" name="subName" placeholder="Subject Name" data-parsley-required="true" />
 									</div>
 								</div>
 								

@@ -28,7 +28,7 @@
                         	<?php } ?>
                         	
                         	
-                            <form class="form-horizontal form-bordered" action="<?php echo base_url();?>user/save" method="POST" >
+                            <form class="form-horizontal form-bordered" action="<?php echo base_url();?>user/save" method="POST">
 								
                             	<div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4">Title:</label>

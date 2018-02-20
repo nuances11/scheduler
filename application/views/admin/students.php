@@ -31,24 +31,28 @@
                             <h4 class="panel-title">Students</h4>
                         </div>
                         <div class="panel-body">
+                            <?php echo $this->session->flashdata('success'); ?>
                             <table id="data-table" class="table table-striped table-bordered" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
+                                        <th>Student Number</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Address</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($students as $student) { ?>
                                     <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td>4</td>
+                                        <td><?php echo $student->studno; ?></td>
                                         <td>
-                                        	<a href="javascript:;" class="btn btn-xs btn-success">
+                                            <?php echo strtoupper($student->lname) . ', ' .ucfirst($student->fname) . ' ' . ucfirst($student->mname); ?>
+                                        </td>
+                                        <td><?php echo $student->gender; ?></td>
+                                        <td><?php echo $student->address; ?></td>
+                                        <td>
+                                        	<a href="<?php echo base_url();?>student/edit/<?php echo $student->studno?>" class="btn btn-xs btn-success">
                                  			<i class="fa fa-pencil"></i> Edit</a>
                                  			<a href="javascript:;" class="btn btn-xs btn-default">
                                             <i class="fa fa-eye"></i> View</a>
@@ -56,91 +60,8 @@
                                             <i class="fa fa-trash"></i> Delete</a>
                              			</td>
                                     </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td>5</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td>5.5</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td>6</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td>7</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td>6</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.7</td>
-                                        <td>
-                                            <a href="javascript:;" class="btn btn-xs btn-success">
-                                            <i class="fa fa-pencil"></i> Edit</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-default">
-                                            <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
-                                            <i class="fa fa-trash"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                 </tbody>
+                                    <?php } ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
