@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Section_model extends CI_Model {
+class Schedule_model extends CI_Model {
     function __construct(){
         parent::__construct();
             $this->load->database();
     }
 
-    function save_section($data){
-        return $this->db->insert('sections', $data);
+    function schedule_save($data){
+        return $this->db->insert('schedule', $data);
     }
 
-    function fetch_sections(){
+    function get_sections(){
         $this->db->select('*');
         $this->db->from('sections');
         
@@ -23,24 +23,10 @@ class Section_model extends CI_Model {
         return [];
     }
 
-    function fetch_section($id){
+    function get_subjects(){
         $this->db->select('*');
-        $this->db->from('sections');
-        $this->db->where('sec_id', $id);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        }
-
-        return [];
-    }
-
-    function get_sections($grade){
-        $this->db->select('*');
-        $this->db->from('sections');
-        $this->db->where('grade', $grade);
-
+        $this->db->from('subjects');
+        
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -49,8 +35,15 @@ class Section_model extends CI_Model {
         return [];
     }
 
-     function update_section($data){
-        $this->db->where('sec_id', $this->input->post('sec_id'));
-        return $this->db->update('sections', $data);
+    function get_teachers(){
+        $this->db->select('*');
+        $this->db->from('teachers');
+        
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+
+        return [];
     }
 }

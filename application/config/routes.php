@@ -1,6 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['user'] = 'userbackend';
+$route['schedule/add'] = 'userbackend/schedule_add';
+$route['schedule/save'] = 'userbackend/schedule_save';
+
+$route['home'] = 'home/index';
+$route['sections-academic/(:num)'] = 'home/sections_academic/$1';
+
 $route['users'] = 'admin/users';
 $route['students'] = 'admin/students';
 $route['sections'] = 'admin/sections';

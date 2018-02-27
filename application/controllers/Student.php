@@ -23,7 +23,6 @@ class Student extends CI_Controller {
     }
 
     function save_student(){
-        //$this->form_validation->set_rules('studno', 'Mobile Number ', 'required|regex_match[/^[0-9]$/]');
         $this->form_validation->set_rules('studno', 'Student Mobile', 'required');
     	$this->form_validation->set_rules('lname', 'Lastname', 'required');
     	$this->form_validation->set_rules('fname', 'Firstname', 'required');
