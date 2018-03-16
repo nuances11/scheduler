@@ -30,7 +30,7 @@
 	           		</p>
                 </div>
                 <div class="latest-post">
-                    <a href="?" class="btn btn-warning">View Schedule</a>
+                    <a href="<?php echo base_url(); ?>schedule/grade/<?php echo $this->uri->segment(2);?>/section/<?php echo $section->sec_id; ?>" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->

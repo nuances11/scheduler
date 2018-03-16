@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- <link href="<?php echo base_url(); ?>assets/css/multiple-select.css" rel="stylesheet"/> -->
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -35,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
+	<!-- <script src="<?php echo base_url(); ?>assets/js/multiple-select.js"></script> -->
 	<script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	<?php if(isset($additional_css)){
@@ -155,6 +157,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?php echo base_url(); ?>assets/crossbrowserjs/respond.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/crossbrowserjs/excanvas.min.js"></script>
 	<![endif]-->
+	<?php if(isset($add_js)){
+			foreach($add_js as $js){ ?>
+				<script src="<?php echo base_url() . $js; ?>"></script> 
+			<?php }
+		} 
+		if(isset($extra_js)){
+			?><script><?php
+			echo $extra_js;
+			?></script><?php
+		}
+		
+	?>
 	<script src="<?php echo base_url(); ?>assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -180,18 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-fixed-columns.demo.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/parsley/dist/parsley.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	 <?php if(isset($add_js)){
-			foreach($add_js as $js){ ?>
-				<script src="<?php echo base_url() . $js; ?>"></script> 
-			<?php }
-		} 
-		if(isset($extra_js)){
-			?><script><?php
-			echo $extra_js;
-			?></script><?php
-		}
-		
-	?>
+	 
 	<script>
 		$(document).ready(function() {
 			App.init();
@@ -205,15 +208,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	</script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-53034621-1', 'auto');
-  ga('send', 'pageview');
+  // ga('create', 'UA-53034621-1', 'auto');
+  // ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">
+	$(document).ready(function() {
+			$('#save-schedule').submit(function(e){
+				var base_url = $(this).data('url');
+				e.preventDefault();
+				var formData = $(this);
+				$.ajax({
+					type: "POST",
+					url: base_url + "schedule/save",
+					data: formData.serialize(),
+					dataType: "JSON",
+					success: function(data){
+						console.log(data);
+					}
+				});
+			})
+		});
+</script>
+<script>
+    // $("select").multipleSelect({
+    //     width: 460,
+    //     multiple: true,
+    //     multipleWidth: 55
+    // });
+</script>
+
 </body>
 
 <!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Feb 2018 12:26:00 GMT -->

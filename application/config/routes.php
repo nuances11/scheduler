@@ -4,9 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['user'] = 'userbackend';
 $route['schedule/add'] = 'userbackend/schedule_add';
 $route['schedule/save'] = 'userbackend/schedule_save';
+$route['get_section'] = 'userbackend/get_section';
+$route['get_schedule'] = 'userbackend/get_available_schedule';
+$route['get_available_hour'] = 'userbackend/get_available_hour';
+$route['get_available_day'] = 'userbackend/get_available_day';
+$route['get_subject'] = 'userbackend/get_subject';
+$route['day_select'] = 'userbackend/day_select';
+$route['time_select'] = 'userbackend/time_select';
+$route['teacher_select'] = 'userbackend/teacher_select';
+
 
 $route['home'] = 'home/index';
 $route['sections-academic/(:num)'] = 'home/sections_academic/$1';
+$route['schedule/grade/(:num)/section/(:num)'] = 'home/schedule/$1/$2';
 
 $route['users'] = 'admin/users';
 $route['students'] = 'admin/students';
@@ -42,6 +52,6 @@ $route['teacher/save'] = 'teacher/save_teacher';
 $route['teacher/edit/(:num)'] = 'admin/edit_teacher/$1';
 $route['teacher/update'] = 'teacher/update_teacher';
 
-$route['default_controller'] = 'admin';
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
