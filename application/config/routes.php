@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['login'] = 'admin/login';
+
 $route['user'] = 'userbackend';
 $route['schedule/add'] = 'userbackend/schedule_add';
 $route['schedule/save'] = 'userbackend/schedule_save';

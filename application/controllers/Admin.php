@@ -11,10 +11,12 @@ class Admin extends CI_Controller {
         $this->load->model('teacher_model');
 
         $styles = array(
-
+        	'assets/plugins/fullcalendar/fullcalendar.print.css',
+        	'assets/plugins/fullcalendar/fullcalendar.min.css'
 		);
 		$js = array(
-			
+			'assets/plugins/fullcalendar/fullcalendar.min.js',
+			'assets/plugins/fullcalendar/lib/moment.min.js'
 		);
 		
 		$this->template->set_additional_css($styles);
@@ -101,5 +103,17 @@ class Admin extends CI_Controller {
 
 	function add_sample(){
 		
+	}
+
+	function login(){
+		$js = array(
+			'assets/js/login.js'
+		);
+		
+		$this->template->set_additional_js($js);
+
+		$this->template->set_title('LOGIN');
+        $this->template->set_template('login');
+        $this->template->load('login/index');
 	}
 }

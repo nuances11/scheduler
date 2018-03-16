@@ -7,20 +7,9 @@
 <h1 class="page-header">Users  <small>list</small></h1>
 
 <div class="row">
-			    <!-- begin col-2 -->
-			    <div class="col-md-2">
-			        <h5>
-			            Key features include:
-			        </h5>
-                    <ul class="p-l-25 m-b-15">
-                        <li>Freezes the left most column to the side of the table</li>
-                        <li>Option to freeze two or more columns</li>
-                        <li>Full integration with DataTables' scrolling options</li>
-                    </ul>
-			    </div>
 			    <!-- end col-2 -->
 			    <!-- begin col-10 -->
-			    <div class="col-md-10">
+			    <div class="col-md-12">
 			        <!-- begin panel -->
                     <div class="panel panel-inverse">
                         <div class="panel-heading">

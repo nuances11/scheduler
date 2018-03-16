@@ -39,7 +39,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- ================== END BASE JS ================== -->
 	<?php if(isset($additional_css)){
 			foreach($additional_css as $css){
-			  echo link_tag($css);
+			  // echo link_tag($css);
+			  ?>
+			  <link rel="stylesheet" type="text/css" href="<?php echo base_url() . $css;?>">
+			  <?php
 			}
 		} ?>
 </head>
@@ -110,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
 					<li class="has-sub">
-						<a href="<?php echo base_url(); ?>">
+						<a href="<?php echo base_url(); ?>/admin">
 						    <i class="bg-gradient-blue ion-ios-pulse-strong"></i>
 						    <span>Dashboard</span>
 					    </a>
@@ -227,6 +230,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$(document).ready(function() {
 			App.init();
 			TableManageFixedColumns.init();
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			 $('#calendar').fullCalendar();
 		});
 	</script>
 	<script>
