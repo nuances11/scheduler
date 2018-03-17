@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/frontend/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/frontend/assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/frontend/assets/css/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/frontend/assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- end container -->
     </div>
     <!-- end #header -->
-    
+
     <!-- begin search-banner -->
     <div class="search-banner has-bg">
         <!-- begin bg-cover -->
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- end container -->
     </div>
     <!-- end search-banner -->
-    
+
     <!-- begin content -->
     <div class="content">
         <!-- begin container -->
@@ -88,11 +88,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- end container -->
     </div>
     <!-- end content -->
-    
+
     <!-- begin #footer-copyright -->
     <div id="footer-copyright" class="footer-copyright">
         <div class="container">
-            &copy; 2014 - 2015 All Right Reserved.
+            &copy; 2018 All Right Reserved.
         </div>
     </div>
     <!-- end #footer-copyright -->
@@ -108,8 +108,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url(); ?>assets/frontend/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<script src="<?php echo base_url(); ?>assets/frontend/assets/js/apps.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
-	<script>    
+
+	<script>
 	    $(document).ready(function() {
 	        App.init();
 	    });

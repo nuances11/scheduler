@@ -11,12 +11,12 @@ class User extends CI_Controller {
 
 		);
 		$js = array(
-			
+
 		);
-		
+
 		$this->template->set_additional_css($styles);
 		$this->template->set_additional_js($js);
-        
+
         //$this->_checkLogin();
         $this->template->set_title('Admin');
         $this->template->set_template('backend');
@@ -42,7 +42,8 @@ class User extends CI_Controller {
     			'fname' => $this->input->post('fname'),
     			'mname' => $this->input->post('mname'),
     			'email' => $this->input->post('email'),
-    			'password' => $this->input->post('password')
+				'password' => sha1($this->input->post('password')),
+                'user_type' => 2
     		);
     		$result = $this->user_model->save_user($data);
 

@@ -12,10 +12,10 @@ class Userbackend extends CI_Controller {
 		$js = array(
 			'assets/js/user.js'
 		);
-		
+
 		$this->template->set_additional_css($styles);
 		$this->template->set_additional_js($js);
-        
+
         //$this->_checkLogin();
         $this->template->set_title('User');
         $this->template->set_template('userbackend');
@@ -24,6 +24,12 @@ class Userbackend extends CI_Controller {
     function index(){
 		$this->template->load('user/index');
 	}
+
+	function logout()
+    {
+        session_destroy();
+        redirect(base_url('login'),'refresh');
+    }
 
 	function schedule_add(){
         $this->template->load_sub('times', $this->schedule_model->get_times());
@@ -34,7 +40,7 @@ class Userbackend extends CI_Controller {
 	}
 
 	function schedule_save(){
-        
+
     	$this->form_validation->set_rules('grade', 'Grade', 'required');
     	$this->form_validation->set_rules('sec_id', 'Section/Academic/Track', 'required');
     	$this->form_validation->set_rules('sub_id', 'Subject', 'required');
@@ -52,7 +58,8 @@ class Userbackend extends CI_Controller {
                 'sub_id' => $this->input->post('sub_id'),
                 'day_id' => $this->input->post('day_id'),
                 'time_id' => $this->input->post('time_id'),
-                'teacher_id' => $this->input->post('teacher_id')
+                'teacher_id' => $this->input->post('teacher_id'),
+				'user_id'=> $this->session->userdata('id')
             );
 
     		$result = $this->schedule_model->schedule_save($data);
@@ -78,6 +85,24 @@ class Userbackend extends CI_Controller {
         echo json_encode($this->schedule_model->get_available_schedule($grade, $section));
     }
 
+	function get_my_schedule()
+	{
+		$grade = $this->input->post('grade');
+        $section = $this->input->post('section');
+        // $teacher = $this->input->post('teacher');
+        // $subject = $this->input->post('subject');
+        echo json_encode($this->schedule_model->get_my_schedule($grade, $section));
+	}
+
+	function schedule_delete($id)
+	{
+		$result = $this->schedule_model->schedule_delete($id);
+
+		if ($result) {
+			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong>Schedule successfully deleted!<span class="close" data-dismiss="alert">×</span></div>');
+			redirect('user', 'refresh');
+		}
+	}
 
     function get_available_hour()
     {

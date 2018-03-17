@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- <link href="<?php echo base_url(); ?>assets/css/multiple-select.css" rel="stylesheet"/> -->
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<link href="<?php echo base_url(); ?>assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/plugins/DataTables/extensions/FixedColumns/css/fixedColumns.bootstrap.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<!-- <script src="<?php echo base_url(); ?>assets/js/multiple-select.js"></script> -->
 	<script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
-	
+
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
 		<!-- begin #header -->
@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Online</b> Scheduler</a>
+					<a href="<?php echo base_url(); ?>user" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Online</b> Scheduler</a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -66,22 +66,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</button>
 				</div>
 				<!-- end mobile sidebar expand / collapse button -->
-				
+
 				<!-- begin header navigation right -->
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-							<span class="user-image online">
-								<img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /> 
-							</span>
-							<span class="hidden-xs">User</span> <b class="caret"></b>
+							<!-- <span class="user-image online">
+								<img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" />
+							</span> -->
+							<span class="hidden-xs"><?php echo $this->session->userdata('name') ;?></span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
 							<li><a href="javascript:;">Edit Profile</a></li>
-							<li><a href="javascript:;">Setting</a></li>
+							<li><a href="javascript:;">Change Password</a></li>
 							<li class="divider"></li>
-							<li><a href="javascript:;">Log Out</a></li>
+							<li><a href="<?php echo base_url();?>logout">Log Out</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- end container-fluid -->
 		</div>
 		<!-- end #header -->
-		
+
 		<!-- begin #sidebar -->
 		<div id="sidebar" class="sidebar">
 			<!-- begin sidebar scrollbar -->
@@ -98,12 +98,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- begin sidebar user -->
 				<ul class="nav">
 					<li class="nav-profile">
-						<div class="image">
+						<!-- <div class="image">
 							<a href="javascript:;"><img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /></a>
-						</div>
+						</div> -->
 						<div class="info">
-							User
-							<small>Sir Noel Hernandez</small>
+							<?php echo $this->session->userdata('position') ;?>
+							<small><?php echo $this->session->userdata('name') ;?></small>
 						</div>
 					</li>
 				</ul>
@@ -133,20 +133,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
-		
+
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<?php echo $content; ?>
-			
+
 		</div>
 		<!-- end #content -->
-				
+
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-primary btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-	
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
@@ -159,20 +159,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<![endif]-->
 	<?php if(isset($add_js)){
 			foreach($add_js as $js){ ?>
-				<script src="<?php echo base_url() . $js; ?>"></script> 
+				<script src="<?php echo base_url() . $js; ?>"></script>
 			<?php }
-		} 
+		}
 		if(isset($extra_js)){
 			?><script><?php
 			echo $extra_js;
 			?></script><?php
 		}
-		
+
 	?>
 	<script src="<?php echo base_url(); ?>assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
+
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 
 	<script src="<?php echo base_url(); ?>assets/plugins/flot/jquery.flot.min.js"></script>
@@ -194,7 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-fixed-columns.demo.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/parsley/dist/parsley.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	 
+
 	<script>
 		$(document).ready(function() {
 			App.init();

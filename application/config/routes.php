@@ -2,19 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['login'] = 'admin/login';
+$route['logout'] = 'home/logout';
+$route['validate_login'] = 'home/validate_login';
 
 $route['user'] = 'userbackend';
 $route['schedule/add'] = 'userbackend/schedule_add';
 $route['schedule/save'] = 'userbackend/schedule_save';
+$route['schedule/delete/(:num)'] = 'userbackend/schedule_delete/$1';
 $route['get_section'] = 'userbackend/get_section';
 $route['get_schedule'] = 'userbackend/get_available_schedule';
+$route['get_my_schedule'] = 'userbackend/get_my_schedule';
 $route['get_available_hour'] = 'userbackend/get_available_hour';
 $route['get_available_day'] = 'userbackend/get_available_day';
 $route['get_subject'] = 'userbackend/get_subject';
 $route['day_select'] = 'userbackend/day_select';
 $route['time_select'] = 'userbackend/time_select';
 $route['teacher_select'] = 'userbackend/teacher_select';
-
 
 $route['home'] = 'home/index';
 $route['sections-academic/(:num)'] = 'home/sections_academic/$1';
@@ -25,6 +28,7 @@ $route['students'] = 'admin/students';
 $route['sections'] = 'admin/sections';
 $route['subjects'] = 'admin/subjects';
 $route['teachers'] = 'admin/teachers';
+$route['principals'] = 'admin/principal';
 
 $route['user/add'] = 'admin/add_user';
 $route['user/save'] = 'user/save_user';
@@ -53,6 +57,18 @@ $route['teacher/add'] = 'admin/add_teacher';
 $route['teacher/save'] = 'teacher/save_teacher';
 $route['teacher/edit/(:num)'] = 'admin/edit_teacher/$1';
 $route['teacher/update'] = 'teacher/update_teacher';
+
+$route['principal/add'] = 'admin/add_principal';
+$route['principal/save'] = 'principal/save_principal';
+$route['principal/edit/(:num)'] = 'admin/edit_principal/$1';
+$route['principal/update'] = 'principal/update_principal';
+$route['principal/activate/(:num)'] = 'principal/activate_principal/$1';
+$route['principal/deactivate/(:num)'] = 'principal/deactivate_principal/$1';
+
+$route['principal'] = 'principal';
+$route['view/grade/(:num)/section/(:num)'] = 'principal/view_grade_section/$1/$2';
+$route['approve/sched'] = 'principal/approve_schedule';
+$route['settings'] = 'principal/settings';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = '';

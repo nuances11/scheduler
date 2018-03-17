@@ -1,0 +1,78 @@
+
+.banner{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 150px;
+  max-height: 150px;
+  margin-top: 20px;
+}
+
+.form-container{
+  max-width: 380px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.form-login{
+  padding: 25px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-login input[type="text"] {
+  margin-bottom: -1px;
+  text-align: center;
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 0px !important;
+  max-width: 300px;
+  width:100%;
+  margin:0px auto;
+
+}
+.form-login input[type="password"] {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 0px !important;
+  max-width: 300px;
+  width:100%;
+  margin:0px auto;
+
+}
+.btn-login{
+  padding: 3px;
+  background-color: cornflowerblue;
+  border: 0px;
+  display: block;
+  margin: auto;
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-weight: bolder;
+  font-size: 16px;
+}
+.btn-login:hover{
+  background-color: #0ca8e7;
+}
+body{
+  background-color: white !important;
+}
+.login-footer{
+  padding: 15px;
+}
+

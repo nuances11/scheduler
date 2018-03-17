@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- <link href="<?php echo base_url(); ?>assets/css/multiple-select.css" rel="stylesheet"/> -->
 	<!-- ================== END BASE CSS STYLE ================== -->
 
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -35,14 +36,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
 
 	<!-- ================== BEGIN BASE JS ================== -->
+	<!-- <script src="<?php echo base_url(); ?>assets/js/multiple-select.js"></script> -->
 	<script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 	<?php if(isset($additional_css)){
 			foreach($additional_css as $css){
-			  // echo link_tag($css);
-			  ?>
-			  <link rel="stylesheet" type="text/css" href="<?php echo base_url() . $css;?>">
-			  <?php
+			  echo link_tag($css);
 			}
 		} ?>
 </head>
@@ -59,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container-fluid">
 				<!-- begin mobile sidebar expand / collapse button -->
 				<div class="navbar-header">
-					<a href="<?php echo base_url();?>admin" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Online</b> Scheduler</a>
+					<a href="<?php echo base_url(); ?>principal" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Online</b> Scheduler</a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -82,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<li><a href="javascript:;">Edit Profile</a></li>
 							<li><a href="javascript:;">Change Password</a></li>
 							<li class="divider"></li>
-							<li><a href="<?php echo base_url(); ?>logout">Log Out</a></li>
+							<li><a href="<?php echo base_url();?>logout">Log Out</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -103,8 +102,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="javascript:;"><img src="<?php echo base_url(); ?>assets/img/user-13.jpg" alt="" /></a>
 						</div> -->
 						<div class="info">
-							<?php echo $this->session->userdata('position');?>
-							<small><?php echo $this->session->userdata('name');?></small>
+							<?php echo $this->session->userdata('position') ;?>
+							<small><?php echo $this->session->userdata('name') ;?></small>
 						</div>
 					</li>
 				</ul>
@@ -113,54 +112,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
 					<li class="has-sub">
-						<a href="<?php echo base_url(); ?>admin">
-						    <i class="bg-gradient-blue ion-ios-pulse-strong"></i>
-						    <span>Dashboard</span>
+						<a href="<?php echo base_url(); ?>principal">
+						    <i class="bg-gradient-green fa fa-list-alt"></i>
+						    <span>View Schedules</span>
 					    </a>
 					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>principals">
-					        <i class="bg-gradient-red fa fa-user"></i>
-					        <span>Principal</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>users">
-					        <i class="bg-gradient-red fa fa-user"></i>
-					        <span>Users</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>students">
-					        <i class="bg-gradient-blue fa fa-users"></i>
-					        <span>Students</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>sections">
-					        <i class="bg-gradient-green fa fa-list-alt"></i>
-					        <span>Sections</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>subjects">
-					        <i class="bg-gradient-pink fa fa-list-ol"></i>
-					        <span>Subjects</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="<?php echo base_url(); ?>teachers">
-					        <i class="bg-gradient-yellow fa fa-paste (alias)"></i>
-					        <span>Teachers</span>
-					    </a>
-					</li>
-					<li class="has-sub">
-					    <a href="javascript:;">
+                    <!-- <li class="has-sub">
+					    <a href="<?php echo base_url(); ?>settings">
 					        <i class="bg-gradient-gray fa fa-gears (alias)"></i>
 					        <span>Settings</span>
 					    </a>
-					</li>
-
+					</li> -->
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-left"></i> <span>Collapse</span></a></li>
 			        <!-- end sidebar minify button -->
@@ -195,6 +157,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?php echo base_url(); ?>assets/crossbrowserjs/respond.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/crossbrowserjs/excanvas.min.js"></script>
 	<![endif]-->
+	<?php if(isset($add_js)){
+			foreach($add_js as $js){ ?>
+				<script src="<?php echo base_url() . $js; ?>"></script>
+			<?php }
+		}
+		if(isset($extra_js)){
+			?><script><?php
+			echo $extra_js;
+			?></script><?php
+		}
+
+	?>
 	<script src="<?php echo base_url(); ?>assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -220,27 +194,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url(); ?>assets/js/table-manage-fixed-columns.demo.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/parsley/dist/parsley.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	 <?php if(isset($add_js)){
-			foreach($add_js as $js){ ?>
-				<script src="<?php echo base_url() . $js; ?>"></script>
-			<?php }
-		}
-		if(isset($extra_js)){
-			?><script><?php
-			echo $extra_js;
-			?></script><?php
-		}
 
-	?>
 	<script>
 		$(document).ready(function() {
 			App.init();
 			TableManageFixedColumns.init();
-		});
-	</script>
-	<script>
-		$(document).ready(function() {
-			 $('#calendar').fullCalendar();
 		});
 	</script>
 	<script>
@@ -250,40 +208,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	</script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-53034621-1', 'auto');
-  ga('send', 'pageview');
+  // ga('create', 'UA-53034621-1', 'auto');
+  // ga('send', 'pageview');
 
 </script>
 <script type="text/javascript">
-	$('#studno').on('keypress', function(){
-        return  event.charCode >= 48 && event.charCode <= 57;
-    });
-
-	$(document).on('keyup', '#studno', function(){
-		//console.log($(this).val());
-		var keyword = $(this).val();
-
-		$.ajax({
-			url: 'http://localhost/scheduler1/student/checkno',
-			method: 'POST',
-			data: {'keyword': keyword},
-			dataType: 'JSON',
-			success: function(result){
-				$('#validate_sn').html(result.status);
-				if (result.status == 'Student number is already exist!') {
-					$('#submit_student').addClass('disabled');
-				} else {
-					$('#submit_student').removeClass('disabled');
-				}
-			}
+	$(document).ready(function() {
+			$('#save-schedule').submit(function(e){
+				var base_url = $(this).data('url');
+				e.preventDefault();
+				var formData = $(this);
+				$.ajax({
+					type: "POST",
+					url: base_url + "schedule/save",
+					data: formData.serialize(),
+					dataType: "JSON",
+					success: function(data){
+						console.log(data);
+					}
+				});
+			})
 		});
-	});
 </script>
+<script>
+    // $("select").multipleSelect({
+    //     width: 460,
+    //     multiple: true,
+    //     multipleWidth: 55
+    // });
+</script>
+
 </body>
 
 <!-- Mirrored from seantheme.com/color-admin-v3.0/admin/apple/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Feb 2018 12:26:00 GMT -->

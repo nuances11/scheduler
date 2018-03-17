@@ -1,13 +1,13 @@
 
 <ol class="breadcrumb pull-right">
-    <li><a href="<?php echo base_url(); ?>">Home</a></li>
-    <li><a href="<?php echo base_url(); ?>teachers">Teachers</a></li>
+    <li><a href="<?php echo base_url(); ?>user">Home</a></li>
+    <li><a href="<?php echo base_url(); ?>user">Teachers</a></li>
     <li class="active">Add Schedule</li>
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
 <h1 class="page-header">Add Schedule<small></small></h1>
-<!-- end page-header --> 
+<!-- end page-header -->
 <!-- begin row -->
 <div class="row">
     <div class="col-md-4">
@@ -16,7 +16,7 @@
                 <h4 class="panel-title"></h4>
             </div>
             <div class="panel-body panel-form">
-                <?php 
+                <?php
                     if (validation_errors()) {?>
                     <div class="alert alert-danger fade in m-b-15">
                         <strong>Error!</strong><br>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4">Grade:</label>
                         <div class="col-md-6 col-sm-6">
-                            <select class="form-control" name="grade" id="select_grade" data-parsley-required="true" data-url="<?php echo base_url();?>"> 
+                            <select class="form-control" name="grade" id="select_grade" data-parsley-required="true" data-url="<?php echo base_url();?>">
                                 <option value="">Please choose</option>
                                 <option value="7" <?php if (set_value('grade') == '7') {
                                     echo "selected";
@@ -60,7 +60,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4"></label>
                         <div class="col-md-6 col-sm-6">

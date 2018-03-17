@@ -14,7 +14,7 @@ class Section_model extends CI_Model {
     function fetch_sections(){
         $this->db->select('*');
         $this->db->from('sections');
-        
+
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -48,6 +48,20 @@ class Section_model extends CI_Model {
 
         return [];
     }
+
+    function section_list()
+    {
+        $this->db->select('*');
+        $this->db->from('sections');
+        $this->db->order_by('grade', 'asc');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+
+        return [];
+    }
+
 
      function update_section($data){
         $this->db->where('sec_id', $this->input->post('sec_id'));

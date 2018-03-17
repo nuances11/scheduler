@@ -14,7 +14,8 @@ class User_model extends CI_Model {
     function fetch_users(){
         $this->db->select('*');
         $this->db->from('users');
-        
+        $this->db->where('user_type', '3');
+
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -56,5 +57,22 @@ class User_model extends CI_Model {
         );
         $this->db->where('user_id', $id);
         return $this->db->update('users', $data);
+    }
+
+    function get_login_data($email, $password)
+    {
+        $query = $this->db->query("
+            SELECT
+            *
+            FROM users
+            WHERE email = '".$email."'
+            AND password = '".$password."'
+        ");
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
+        }
+
+        return [];
     }
 }

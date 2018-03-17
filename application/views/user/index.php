@@ -5,69 +5,70 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header">Dashboard <small>header small text goes here...</small></h1>
+<h1 class="page-header">Dashboard </h1>
 <!-- end page-header -->
 
 <!-- begin row -->
 <div class="row">
-	<!-- begin col-8 -->
-	<div class="col-md-12">
-		<div class="panel panel-inverse" data-sortable-id="index-5">
-			<div class="panel-heading">
-			</div>
-			<div class="panel-body">
-				<div class="height-sm" data-scrollbar="true">
-					<ul class="media-list media-list-with-divider media-messaging">
-						<li class="media media-sm">
-							<a href="javascript:;" class="pull-left">
-								<img src="assets/img/user-5.jpg" alt="" class="media-object rounded-corner" />
-							</a>
-							<div class="media-body">
-								<h5 class="media-heading">John Doe</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id nunc non eros fermentum vestibulum ut id felis. Nunc molestie libero eget urna aliquet, vitae laoreet felis ultricies. Fusce sit amet massa malesuada, tincidunt augue vitae, gravida felis.</p>
-							</div>
-						</li>
-						<li class="media media-sm">
-							<a href="javascript:;" class="pull-left">
-								<img src="assets/img/user-6.jpg" alt="" class="media-object rounded-corner" />
-							</a>
-							<div class="media-body">
-								<h5 class="media-heading">Terry Ng</h5>
-								<p>Sed in ante vel ipsum tristique euismod posuere eget nulla. Quisque ante sem, scelerisque iaculis interdum quis, eleifend id mi. Fusce congue leo nec mauris malesuada, id scelerisque sapien ultricies.</p>
-							</div>
-						</li>
-						<li class="media media-sm">
-							<a href="javascript:;" class="pull-left">
-								<img src="assets/img/user-8.jpg" alt="" class="media-object rounded-corner" />
-							</a>
-							<div class="media-body">
-								<h5 class="media-heading">Fiona Log</h5>
-								<p>Pellentesque dictum in tortor ac blandit. Nulla rutrum eu leo vulputate ornare. Nulla a semper mi, ac lacinia sapien. Sed volutpat ornare eros, vel semper sem sagittis in. Quisque risus ipsum, iaculis quis cursus eu, tristique sed nulla.</p>
-							</div>
-						</li>
-						<li class="media media-sm">
-							<a href="javascript:;" class="pull-left">
-								<img src="assets/img/user-7.jpg" alt="" class="media-object rounded-corner" />
-							</a>
-							<div class="media-body">
-								<h5 class="media-heading">John Doe</h5>
-								<p>Morbi molestie lorem quis accumsan elementum. Morbi condimentum nisl iaculis, laoreet risus sed, porta neque. Proin mi leo, dapibus at ligula a, aliquam consectetur metus.</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="panel-footer">
-				<form>
-					<div class="input-group">
-						<input type="text" class="form-control bg-silver" placeholder="Enter message" />
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button"><i class="fa fa-pencil"></i></button>
-						</span>
-					</div>
-				</form>
+	<div class="col-md-4">
+        <!-- begin panel -->
+		<?php echo $this->session->flashdata('success'); ?>
+            <div class="panel-heading">
+                <h4 class="panel-title"></h4>
             </div>
-		</div>
-	</div>
+            <div class="panel-body panel-form">
+               <form action="<?php echo base_url()?>schedule/save" method="POST">
+                    <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4">Grade:</label>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-control" name="grade" id="select_grade" data-parsley-required="true" data-url="<?php echo base_url();?>">
+                                <option value="">Please choose</option>
+                                <option value="7" <?php if (set_value('grade') == '7') {
+                                    echo "selected";
+                                }?>>7</option>
+                                <option value="8" <?php if (set_value('grade') == '8') {
+                                    echo "selected";
+                                }?>>8</option>
+                                <option value="9" <?php if (set_value('grade') == '9') {
+                                    echo "selected";
+                                }?>>9</option>
+                                <option value="10" <?php if (set_value('grade') == '10') {
+                                    echo "selected";
+                                }?>>10</option>
+                                <option value="11" <?php if (set_value('grade') == '11') {
+                                    echo "selected";
+                                }?>>11</option>
+                                <option value="12" <?php if (set_value('grade') == '12') {
+                                    echo "selected";
+                                }?>>12</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4">Section/Academic<br/>/Track:</label>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-control" id="section_select" name="sec_id" data-parsley-required="true">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4"></label>
+                        <div class="col-md-6 col-sm-6">
+                            <a href="javascript:void(0);" id="get_sched" class="btn btn-danger">Check</a>
+                        </div>
+                    </div>
+
+                </div>
+                </form>
+            </div>
+        <!-- end panel -->
+    </div>
+	<div class="col-md-8">
+        <table class="table table-striped table-bordered" id="my_schedule" width="100%"></table>
+        <hr>
+    </div>
 </div>
 <!-- end row -->

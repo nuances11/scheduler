@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         $this->load->model('section_model');
         $this->load->model('subject_model');
         $this->load->model('teacher_model');
+		$this->load->model('principal_model');
 
         $styles = array(
         	'assets/plugins/fullcalendar/fullcalendar.print.css',
@@ -18,10 +19,10 @@ class Admin extends CI_Controller {
 			'assets/plugins/fullcalendar/fullcalendar.min.js',
 			'assets/plugins/fullcalendar/lib/moment.min.js'
 		);
-		
+
 		$this->template->set_additional_css($styles);
 		$this->template->set_additional_js($js);
-        
+
         //$this->_checkLogin();
         $this->template->set_title('Admin');
         $this->template->set_template('backend');
@@ -30,6 +31,12 @@ class Admin extends CI_Controller {
     function index(){
 		$this->template->load('admin/index');
 	}
+
+	function logout()
+    {
+        session_destroy();
+        redirect(base_url('login'),'refresh');
+    }
 
 	function users(){
 		$this->template->load_sub('users', $this->user_model->fetch_users());
@@ -81,6 +88,17 @@ class Admin extends CI_Controller {
 		$this->template->load('admin/edit_teacher');
 	}
 
+	function principal()
+	{
+		$this->template->load_sub('principals', $this->principal_model->fetch_principals());
+		$this->template->load('admin/principal');
+	}
+
+	function edit_principal($id){
+		$this->template->load_sub('principal', $this->principal_model->fetch_principal($id));
+		$this->template->load('admin/edit_principal');
+	}
+
 	function add_user(){
 		$this->template->load('admin/add_user');
 	}
@@ -101,15 +119,15 @@ class Admin extends CI_Controller {
 		$this->template->load('admin/add_teacher');
 	}
 
-	function add_sample(){
-		
+	function add_principal(){
+		$this->template->load('admin/add_principal');
 	}
 
 	function login(){
 		$js = array(
 			'assets/js/login.js'
 		);
-		
+
 		$this->template->set_additional_js($js);
 
 		$this->template->set_title('LOGIN');

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="<?php echo base_url(); ?>assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,7 +25,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link href="<?php echo base_url(); ?>assets/css/style-responsive.min.css" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+
+	<?php if(isset($additional_css)){
+			foreach($additional_css as $css){
+				?>
+				<link rel="stylesheet" href="<?php echo base_url() . $css; ?>">
+				<?php
+			}
+		} ?>
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
@@ -34,15 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
-	
+
 	<!-- begin #page-container -->
 	<div id="page-container" class="fade">
-	    
+
         <?php echo $content; ?>
-        
+
 	</div>
 	<!-- end page container -->
-	
+
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-1.9.1.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
@@ -56,24 +64,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo base_url(); ?>assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/plugins/jquery-cookie/jquery.cookie.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	
+
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	
+	<?php if(isset($add_js)){
+			foreach($add_js as $js){ ?>
+				<script src="<?php echo base_url() . $js; ?>"></script>
+			<?php }
+		}
+		if(isset($extra_js)){
+			?><script><?php
+			echo $extra_js;
+			?></script><?php
+		}
+
+	?>
+
 	<script>
 		$(document).ready(function() {
 			App.init();
 		});
 	</script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53034621-1', 'auto');
-  ga('send', 'pageview');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+  //
+  // ga('create', 'UA-53034621-1', 'auto');
+  // ga('send', 'pageview');
 
 </script>
 </body>
