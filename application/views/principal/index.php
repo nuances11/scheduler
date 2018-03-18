@@ -34,6 +34,8 @@
                             <td>
                                 <a href="<?php echo base_url();?>view/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default">
                                 <i class="fa fa-eye"></i> View</a>
+								<a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default">
+                                <i class="fa fa-calendar"></i> View Calendar</a>
                             </td>
                         </tr>
                         <?php } ?>

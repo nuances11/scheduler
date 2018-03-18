@@ -2,17 +2,18 @@
     <!-- begin panel-heading -->
 
     <div class="panel-heading">
+        <a href="<?php echo base_url(); ?>sections-academic/<?php echo $this->uri->segment(3);?>" class="pull-right">Back</a>
         <h4 class="panel-title">View Schedule</h4>
     </div>
     <table class="table table-striped table-bordered">
     	<thead>
             <tr>
-                <th>M</th>
-                <th>T</th>
-                <th>W</th>
-                <th>TH</th>
-                <th>F</th>
-                <th>S</th>
+                <th width="16%">M</th>
+                <th width="16%">T</th>
+                <th width="16%">W</th>
+                <th width="16%">TH</th>
+                <th width="16%">F</th>
+                <th width="16%">S</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +26,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -36,7 +43,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -47,7 +60,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -58,7 +77,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -69,7 +94,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -80,7 +111,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -93,7 +130,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -104,7 +147,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -115,7 +164,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -126,7 +181,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -137,7 +198,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -148,7 +215,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -161,7 +234,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -172,7 +251,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -183,7 +268,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -194,7 +285,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -205,7 +302,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -216,7 +319,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -229,7 +338,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -240,7 +355,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -251,7 +372,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -262,7 +389,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -273,7 +406,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -284,7 +423,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -297,7 +442,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -308,7 +459,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -319,7 +476,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -330,7 +493,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -341,7 +510,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -352,7 +527,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -365,7 +546,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -376,7 +563,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -387,7 +580,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -398,7 +597,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -409,7 +614,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -420,7 +631,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -433,7 +650,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -444,7 +667,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -455,7 +684,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -466,7 +701,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -477,7 +718,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -488,7 +735,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -501,7 +754,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -512,7 +771,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -523,7 +788,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -534,7 +805,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -545,7 +822,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -556,7 +839,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>
@@ -569,7 +858,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -580,7 +875,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -591,7 +892,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -602,7 +909,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -613,7 +926,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         		<td>
@@ -624,7 +943,13 @@
 			        		<?php echo $sched->subName ;?><br/><br/>
 			        		<?php echo $sched->title . '. ' . $sched->fname . ' ' . $sched->lname ;?><br/><br/>
 			        		<?php
-        				}
+        				}else{
+                            ?>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            &nbsp;<br/>
+                            <?php
+                        }
         			}?>
         		</td>
         	</tr>

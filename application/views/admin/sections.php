@@ -39,7 +39,7 @@
                                             <i class="fa fa-pencil"></i> Edit</a>
                                             <a href="javascript:;" class="btn btn-xs btn-default">
                                             <i class="fa fa-eye"></i> View</a>
-                                            <a href="javascript:;" class="btn btn-xs btn-danger">
+                                            <a href="<?php echo base_url();?>delete/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-danger">
                                             <i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>

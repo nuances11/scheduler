@@ -1,6 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['admin/change-pass'] = 'admin/change_pass';
+$route['user/change-pass'] = 'userbackend/change_pass';
+$route['principal/change-pass'] = 'principal/change_pass';
+$route['user/edit-profile'] = 'userbackend/edit_profile';
+$route['principal/edit-profile'] = 'principal/edit_profile';
+$route['user/update-profile'] = 'userbackend/update_profile';
+$route['principal/update-profile'] = 'principal/update_profile';
+
+$route['admin/save_change_pass'] = 'admin/save_change_pass';
+$route['user/save_change_pass'] = 'userbackend/save_change_pass';
+$route['principal/save_change_pass'] = 'principal/save_change_pass';
+$route['delete/student/(:num)'] = 'admin/student_delete/$1';
+$route['delete/section/(:num)'] = 'admin/section_delete/$1';
+$route['delete/subject/(:num)'] = 'admin/subject_delete/$1';
+$route['delete/teacher/(:num)'] = 'admin/teacher_delete/$1';
+
 $route['login'] = 'admin/login';
 $route['logout'] = 'home/logout';
 $route['validate_login'] = 'home/validate_login';
@@ -64,6 +80,7 @@ $route['principal/edit/(:num)'] = 'admin/edit_principal/$1';
 $route['principal/update'] = 'principal/update_principal';
 $route['principal/activate/(:num)'] = 'principal/activate_principal/$1';
 $route['principal/deactivate/(:num)'] = 'principal/deactivate_principal/$1';
+$route['principal/schedule/grade/(:num)/section/(:num)'] = 'principal/schedule/$1/$2';
 
 $route['principal'] = 'principal';
 $route['view/grade/(:num)/section/(:num)'] = 'principal/view_grade_section/$1/$2';

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (isset($_SESSION['id'])) {
+	if ($_SESSION['type'] == 1) {
+		header("Location: " . base_url() . "admin");
+	}elseif ($_SESSION['type'] == 2) {
+		header("Location: " . base_url() . "principal");
+	}elseif ($_SESSION['type'] == 3) {
+		header("Location: " . base_url() . "user");
+	}
+}
 ?>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
@@ -44,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="<?php echo base_url(); ?>home" class="navbar-brand">
                     <span class="navbar-logo"></span>
                     <span class="brand-text">
-                        School Name
+                        LUAKAN NATIONAL HIGH SCHOOL
                     </span>
                 </a>
             </div>
@@ -52,8 +61,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- begin #header-navbar -->
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?php echo base_url(); ?>home">Home</a></li>
-                    <li><a href="javascript:;">About Us</a></li>
+					<li><strong>School ID - 300708</strong></li>
+                    <!-- <li><a href="<?php echo base_url(); ?>home">Home</a></li>
+                    <li><a href="javascript:;">About Us</a></li> -->
                 </ul>
             </div>
             <!-- end #header-navbar -->
@@ -71,8 +81,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- end bg-cover -->
         <!-- begin container -->
         <div class="container">
-            <h1><?php echo $title; ?></h1>
-            <h5 class="text-center">Browse by Popular Categories</h5>
+            <h1>SCHEDULE LIST</h1>
+            <h5 class="text-center"></h5>
         </div>
         <!-- end container -->
     </div>
@@ -90,11 +100,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- end content -->
 
     <!-- begin #footer-copyright -->
-    <div id="footer-copyright" class="footer-copyright">
+    <!-- <div id="footer-copyright" class="footer-copyright">
         <div class="container">
             &copy; 2018 All Right Reserved.
         </div>
-    </div>
+    </div> -->
     <!-- end #footer-copyright -->
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="<?php echo base_url(); ?>assets/frontend/assets/plugins/jquery/jquery-1.9.1.min.js"></script>

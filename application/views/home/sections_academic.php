@@ -8,7 +8,7 @@
     <!-- end panel-heading -->
     <!-- begin forum-list -->
     <ul class="forum-list">
-    	<?php if (empty($sections)) { ?> 
+    	<?php if (empty($sections)) { ?>
     		<div class="alert alert-danger">
     			No result found
     		</div>
@@ -25,9 +25,6 @@
                 <div class="info">
                     <h4 class="title"><a href="category_list.html"><?php echo $section->sectionName; ?></a>
                     </h4>
-	                <p class="desc">
-	                	Number of Students enrolled <b>(9)</b>
-	           		</p>
                 </div>
                 <div class="latest-post">
                     <a href="<?php echo base_url(); ?>schedule/grade/<?php echo $this->uri->segment(2);?>/section/<?php echo $section->sec_id; ?>" class="btn btn-warning">View Schedule</a>

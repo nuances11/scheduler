@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('student_model');
-        $this->load->model('section_model');
+        $this->load->model('section_model'); 
         $this->load->model('subject_model');
         $this->load->model('teacher_model');
 		$this->load->model('principal_model');
@@ -29,7 +29,73 @@ class Admin extends CI_Controller {
     }
 
     function index(){
+		$this->template->load_sub('num_student', $this->user_model->get_total_student());
+		$this->template->load_sub('num_teacher', $this->user_model->get_total_teacher());
+		$this->template->load_sub('num_subject', $this->user_model->get_total_subject());
+		$this->template->load_sub('num_schedule', $this->user_model->get_total_schedule());
 		$this->template->load('admin/index');
+	}
+
+	function change_pass()
+	{
+		$this->template->load('admin/change_pass');
+	}
+
+	function save_change_pass(){
+
+    	$this->form_validation->set_rules('old_pass', 'Old Password', 'required|min_length[8]');
+    	$this->form_validation->set_rules('new_pass', 'New Password', 'required|min_length[8]');
+    	$this->form_validation->set_rules('cpass', 'Confirm Password', 'required|matches[new_pass]');
+
+    	if ($this->form_validation->run() == FALSE) {
+    		$this->change_pass();
+    	}else{
+    		$result = $this->user_model->change_pass($this->input->post('old_pass'), $this->input->post('new_pass'));
+
+    		if ($result) {
+    			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Password updated successfully!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('admin/change_pass', 'refresh');
+    		}else{
+				$this->session->set_flashdata('success', '<div class="alert alert-danger fade in m-b-15"><strong>Failed!</strong> Password updated failed!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('admin/change_pass', 'refresh');
+			}
+    	}
+	}
+
+	function student_delete($id)
+	{
+		$result = $this->user_model->delete_student($id);
+		if ($result) {
+			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Password updated successfully!<span class="close" data-dismiss="alert">×</span></div>');
+			redirect('admin/students', 'refresh');
+		}
+	}
+
+	function section_delete($id)
+	{
+		$result = $this->user_model->delete_section($id);
+		if ($result) {
+			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Section deleted successfully!<span class="close" data-dismiss="alert">×</span></div>');
+			redirect('admin/sections', 'refresh');
+		}
+	}
+
+	function subject_delete($id)
+	{
+		$result = $this->user_model->delete_suject($id);
+		if ($result) {
+			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Subject deleted successfully!<span class="close" data-dismiss="alert">×</span></div>');
+			redirect('admin/subjects', 'refresh');
+		}
+	}
+
+	function teacher_delete($id)
+	{
+		$result = $this->user_model->delete_teacher($id);
+		if ($result) {
+			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Teacher deleted successfully!<span class="close" data-dismiss="alert">×</span></div>');
+			redirect('admin/teachers', 'refresh');
+		}
 	}
 
 	function logout()

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (isset($_SESSION['id'])) {
+	if ($_SESSION['type'] != 1) {
+		header("Location: " . base_url() . "login");
+	}
+}else{
+	header("Location: " . base_url() . "login");
+}
 ?>
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -79,8 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
-							<li><a href="javascript:;">Edit Profile</a></li>
-							<li><a href="javascript:;">Change Password</a></li>
+							<li><a href="<?php echo base_url();?>admin/change-pass">Change Password</a></li>
 							<li class="divider"></li>
 							<li><a href="<?php echo base_url(); ?>logout">Log Out</a></li>
 						</ul>
@@ -130,12 +136,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					        <span>Users</span>
 					    </a>
 					</li>
-					<li class="has-sub">
+					<!-- <li class="has-sub">
 					    <a href="<?php echo base_url(); ?>students">
 					        <i class="bg-gradient-blue fa fa-users"></i>
 					        <span>Students</span>
 					    </a>
-					</li>
+					</li> -->
 					<li class="has-sub">
 					    <a href="<?php echo base_url(); ?>sections">
 					        <i class="bg-gradient-green fa fa-list-alt"></i>
@@ -154,12 +160,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					        <span>Teachers</span>
 					    </a>
 					</li>
-					<li class="has-sub">
+					<!-- <li class="has-sub">
 					    <a href="javascript:;">
 					        <i class="bg-gradient-gray fa fa-gears (alias)"></i>
 					        <span>Settings</span>
 					    </a>
-					</li>
+					</li> -->
 
 			        <!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-left"></i> <span>Collapse</span></a></li>

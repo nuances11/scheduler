@@ -37,7 +37,7 @@
                                         <td>
                                         	<a href="<?php echo base_url();?>subject/edit/<?php echo $subject->sub_id?>" class="btn btn-xs btn-success">
                                  			<i class="fa fa-pencil"></i> Edit</a>
-                                 			<a href="javascript:;" class="btn btn-xs btn-danger">
+                                 			<a href="<?php echo base_url();?>delete/subject/<?php echo $subject->sub_id;?>" class="btn btn-xs btn-danger">
                                             <i class="fa fa-trash"></i> Delete</a>
                              			</td>
                                     </tr>

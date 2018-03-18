@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (isset($_SESSION['id'])) {
+	if ($_SESSION['type'] != 2) {
+		header("Location: " . base_url() . "login");
+	}
+}else{
+	header("Location: " . base_url() . "login");
+}
 ?>
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -78,8 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
-							<li><a href="javascript:;">Edit Profile</a></li>
-							<li><a href="javascript:;">Change Password</a></li>
+							<li><a href="<?php echo base_url(); ?>principal/edit-profile">Edit Profile</a></li>
+							<li><a href="<?php echo base_url(); ?>principal/change-pass">Change Password</a></li>
 							<li class="divider"></li>
 							<li><a href="<?php echo base_url();?>logout">Log Out</a></li>
 						</ul>

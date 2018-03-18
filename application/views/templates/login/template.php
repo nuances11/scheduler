@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (isset($_SESSION['id'])) {
+	if ($_SESSION['type'] == 1) {
+		header("Location: " . base_url() . "admin");
+	}elseif ($_SESSION['type'] == 2) {
+		header("Location: " . base_url() . "principal");
+	}elseif ($_SESSION['type'] == 3) {
+		header("Location: " . base_url() . "user");
+	}
+}
 ?>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->

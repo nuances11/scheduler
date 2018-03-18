@@ -5,6 +5,7 @@ class Userbackend extends CI_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->model('schedule_model');
+		$this->load->model('user_model');
 
         $styles = array(
 
@@ -23,6 +24,65 @@ class Userbackend extends CI_Controller {
 
     function index(){
 		$this->template->load('user/index');
+	}
+
+	function change_pass()
+	{
+		$this->template->load('user/change_pass');
+	}
+
+	function save_change_pass(){
+
+    	$this->form_validation->set_rules('old_pass', 'Old Password', 'required|min_length[8]');
+    	$this->form_validation->set_rules('new_pass', 'New Password', 'required|min_length[8]');
+    	$this->form_validation->set_rules('cpass', 'Confirm Password', 'required|matches[new_pass]');
+
+    	if ($this->form_validation->run() == FALSE) {
+    		$this->change_pass();
+    	}else{
+    		$result = $this->user_model->change_pass($this->input->post('old_pass'), $this->input->post('new_pass'));
+
+    		if ($result) {
+    			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Password updated successfully!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('userbackend/change_pass', 'refresh');
+    		}else{
+				$this->session->set_flashdata('success', '<div class="alert alert-danger fade in m-b-15"><strong>Failed!</strong> Password updated failed!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('userbackend/change_pass', 'refresh');
+			}
+    	}
+	}
+
+	function edit_profile(){
+		$this->template->load_sub('user', $this->user_model->fetch_user($this->session->userdata('id')));
+		$this->template->load('user/edit-profile');
+	}
+
+	function update_profile()
+	{
+		$this->form_validation->set_rules('title', 'Title', 'required');
+    	$this->form_validation->set_rules('position', 'Position', 'required');
+    	$this->form_validation->set_rules('lname', 'Lastname', 'required');
+    	$this->form_validation->set_rules('fname', 'Firstname', 'required');
+    	$this->form_validation->set_rules('mname', 'Middlename', 'required');
+    	$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
+    	if ($this->form_validation->run() == FALSE) {
+    		$this->edit_profile();
+    	}else{
+    		$data  = array(
+    			'title' => $this->input->post('title'),
+    			'position' => $this->input->post('position'),
+    			'lname' => $this->input->post('lname'),
+    			'fname' => $this->input->post('fname'),
+    			'mname' => $this->input->post('mname'),
+    			'email' => $this->input->post('email')
+    		);
+    		$result = $this->user_model->update_profile($data);
+
+    		if ($result) {
+    			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> User successfully Updated!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('userbackend/edit_profile', 'refresh');
+    		}
+    	}
 	}
 
 	function logout()
