@@ -34,6 +34,7 @@ $route['get_subject'] = 'userbackend/get_subject';
 $route['day_select'] = 'userbackend/day_select';
 $route['time_select'] = 'userbackend/time_select';
 $route['teacher_select'] = 'userbackend/teacher_select';
+$route['schedule/submit'] = 'userbackend/schedule_submit';
 
 $route['home'] = 'home/index';
 $route['sections-academic/(:num)'] = 'home/sections_academic/$1';
@@ -85,6 +86,7 @@ $route['principal/schedule/grade/(:num)/section/(:num)'] = 'principal/schedule/$
 $route['principal'] = 'principal';
 $route['view/grade/(:num)/section/(:num)'] = 'principal/view_grade_section/$1/$2';
 $route['approve/sched'] = 'principal/approve_schedule';
+$route['view/schedule/grade/(:num)/section/(:num)/user/(:num)'] = 'principal/view_submitted_schedule/$1/$2/$3';
 $route['settings'] = 'principal/settings';
 
 $route['default_controller'] = 'home';

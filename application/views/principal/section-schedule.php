@@ -23,29 +23,25 @@
                 <table id="data-table" class="table table-striped table-bordered" width="100%">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Time</th>
-                            <th>Subject</th>
                             <th>Teacher</th>
-                            <th></th>
+                            <th>View</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($schedules as $sched) { ?>
                         <tr class="odd gradeX">
-                            <td><?php echo $sched->day_id;?></td>
-                            <td><?php echo $sched->time_start . '-' . $sched->time_end ;?></td>
-                            <td><?php echo $sched->subName;?></td>
-                            <td><?php echo $sched->title . '. ' . $sched->lname;?></td>
+                            <td><?php echo $sched->fname . ' ' . $sched->lname;?></td>
+                            <td><a href="<?php echo base_url() . 'view/schedule/grade/' . $sched->grade . '/section/' . $sched->section_id . '/user/' . $sched->user_id ;?>">View Schedule</a></td>
                             <td>
                                 <?php
-                                if ($sched->sched_status == '1') {
+                                if ($sched->schedule_status == '1') {
                                     ?>
                                     APPROVED
                                     <?php
                                 }else{
                                     ?>
-                                        <a href="javascript:void(0);" data-url="<?php echo base_url();?>" class="approve_sched" data-id="<?php echo $sched->id;?>" data-grade="<?php echo $this->uri->segment(3);?>" data-section="<?php echo $this->uri->segment(5);?>">Approve this schedule</a>
+                                        <a href="javascript:void(0);" data-url="<?php echo base_url();?>" class="approve_sched" data-id="<?php echo $sched->user_id;?>" data-grade="<?php echo $this->uri->segment(3);?>" data-section="<?php echo $this->uri->segment(5);?>">Approve this schedule</a>
                                     <?php
                                 }
                                 ?>

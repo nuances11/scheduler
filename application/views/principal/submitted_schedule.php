@@ -1,3 +1,4 @@
+
 <ol class="breadcrumb pull-right">
 	<li><a href="javascript:;">Home</a></li>
 	<li class="active">Dashboard</li>
@@ -12,7 +13,7 @@
         <div class="panel panel-inverse">
             <div class="panel-heading">
                 <div class="panel-heading-btn">
-                    <a href="<?php echo base_url(); ?>principal" class="btn btn-xs btn-success">
+                    <a href="<?php echo base_url(); ?>view/grade/<?php echo $this->uri->segment(4) ;?>/section/<?php echo $this->uri->segment(6) ;?>" class="btn btn-xs btn-success">
                      <i class="fa fa-pencil"></i> Back</a>
                 </div>
                 <h4 class="panel-title">Schedule</h4>
@@ -21,11 +22,13 @@
                 <table class="table table-striped table-bordered">
                 	<thead>
                         <tr>
+                        	<!-- <th width="16%">TIME</th> -->
                             <th width="16%">M</th>
                             <th width="16%">T</th>
                             <th width="16%">W</th>
                             <th width="16%">TH</th>
                             <th width="16%">F</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +43,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -55,7 +58,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -70,7 +73,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -85,7 +88,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -100,12 +103,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -118,7 +120,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -133,7 +135,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -148,7 +150,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -163,7 +165,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -178,12 +180,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -196,7 +197,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -211,7 +212,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -226,7 +227,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -241,7 +242,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -256,12 +257,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -274,7 +274,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -289,7 +289,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -304,7 +304,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -319,7 +319,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -334,12 +334,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -352,7 +351,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -367,7 +366,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -382,7 +381,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -397,7 +396,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -412,12 +411,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -430,7 +428,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -445,7 +443,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -460,7 +458,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -475,7 +473,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -490,12 +488,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -508,7 +505,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -523,7 +520,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -538,7 +535,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -553,7 +550,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -568,12 +565,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -586,7 +582,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -601,7 +597,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -616,7 +612,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -631,7 +627,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -646,12 +642,11 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
                     		</td>
-                    		
                     	</tr>
                     	<tr>
                     		<td>
@@ -664,7 +659,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -679,7 +674,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -694,7 +689,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -709,7 +704,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>
@@ -724,7 +719,7 @@
             			        		<?php
                     				}else{
                                         ?>
-                                        &nbsp;<br/>
+                                        &nbsp;
                                         <?php
                                     }
                     			}?>

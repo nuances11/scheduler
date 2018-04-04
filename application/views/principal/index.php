@@ -1,6 +1,6 @@
 
 <ol class="breadcrumb pull-right">
-	<li><a href="javascript:;">Home</a></li>
+	<li><a href="javascript:;">Home</a></li> 
 	<li class="active">Dashboard</li>
 </ol>
 <!-- end breadcrumb -->

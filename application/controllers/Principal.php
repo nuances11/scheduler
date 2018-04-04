@@ -37,7 +37,14 @@ class Principal extends CI_Controller {
 		$this->template->load('principal/schedule_view');
 	}
 
-	function view_grade_section($grade, $section)
+    function view_submitted_schedule($grade, $section, $id)
+    {
+        $this->template->load_sub('schedule', $this->schedule_model->get_submitted_schedule($id,$grade, $section));
+        $this->template->set_title('Schedule View');
+        $this->template->load('principal/submitted_schedule');
+    }
+
+	function view_grade_section($grade, $section) 
 	{
 		$this->template->load_sub('schedules', $this->schedule_model->section_schedule($grade, $section));
 		$this->template->load('principal/section-schedule');

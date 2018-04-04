@@ -125,8 +125,9 @@ class Userbackend extends CI_Controller {
     		$result = $this->schedule_model->schedule_save($data);
 
     		if ($result) {
-    			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> New Schedule successfully added!<span class="close" data-dismiss="alert">×</span></div>');
-    			redirect('user', 'refresh');
+                echo json_encode(array('success' => TRUE));
+    			// $this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> New Schedule successfully added!<span class="close" data-dismiss="alert">×</span></div>');
+    			// redirect('user', 'refresh');
     		}
     	}
     }
@@ -202,5 +203,19 @@ class Userbackend extends CI_Controller {
         $day = $this->input->post('day');
         $time = $this->input->post('time');
         echo json_encode($this->schedule_model->get_available_teacher($grade, $section, $subject, $day, $time));
+    }
+
+    function schedule_submit()
+    {
+        $grade = $this->input->post('grade');
+        $section = $this->input->post('section');
+        $user = $this->input->post('user');
+        
+        $result = $this->schedule_model->schedule_submit($grade, $section, $user);
+        if ($result) {
+            echo json_encode(array('success' => TRUE));
+        }else{
+            echo json_encode(array('success' => FALSE));
+        }
     }
 }

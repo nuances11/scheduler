@@ -24,7 +24,7 @@
                         <span class="close" data-dismiss="alert">×</span>
                     </div>
                 <?php } ?>
-               <form action="<?php echo base_url()?>schedule/save" method="POST">
+               <form method="POST" id="save_schedule" data-url="<?php echo base_url();?>">
                     <div class="form-horizontal form-bordered">
                     <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4">Grade:</label>
@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4"></label>
                         <div class="col-md-6 col-sm-6">
-                            <button type="submit" id="add_sched_btn" class="btn btn-primary">Submit</button>
+                            <button type="submit" id="add_sched_btn" class="btn btn-primary">Add Schedule</button>
                         </div>
                     </div>
 

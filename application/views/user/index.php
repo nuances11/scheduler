@@ -68,7 +68,9 @@
     </div>
 	<div class="col-md-8">
         <table class="table table-striped table-bordered" id="my_schedule" width="100%"></table>
+
         <hr>
+        <button class="btn btn-primary" id="submit_sched" data-url="<?php echo base_url();?>" data-user="<?php echo $_SESSION['id'];?>">Submit Schedule</button>
     </div>
 </div>
 <!-- end row -->
