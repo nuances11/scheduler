@@ -191,7 +191,7 @@ class Userbackend extends CI_Controller {
     function time_select(){
         $grade = $this->input->post('grade');
         $section = $this->input->post('section');
-        $subject = $this->input->post('subject');
+        $subject = $this->input->post('subject'); 
         $day = $this->input->post('day');
         echo json_encode($this->schedule_model->get_available_time($grade, $section, $subject, $day));
     }

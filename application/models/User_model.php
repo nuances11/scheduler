@@ -14,7 +14,7 @@ class User_model extends CI_Model {
     function fetch_users(){
         $this->db->select('*');
         $this->db->from('users');
-        $this->db->where('user_type', '3');
+        //$this->db->where('user_type', '3');
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

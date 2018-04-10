@@ -11,11 +11,131 @@ class Schedule_model extends CI_Model {
         return $this->db->insert('schedule', $data);
     }
 
+    function get_grade_section($grade){
+        $this->db->select('*')
+            ->from('sections')
+            ->where('grade', $grade);
+
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+
+        return [];
+    }
+
+    function get_grade_schedule($grade)
+    {   
+        $sample = array('1', '2', '3');
+        $schedule = array();
+        $sched = $this->db->query("
+                SELECT
+                    *
+                FROM time
+            ");
+        // $schedule = $time->result();
+        foreach ($sched->result() as $sch) {
+           // $section = $this->db->query("
+           //      SELECT
+           //          s.sec_id,
+           //          sec.sectionName
+           //      FROM sections s
+           //      LEFT JOIN sections sec
+           //      ON s.sec_id = sec.sec_id
+           //      WHERE s.grade = $grade;
+           //  ");
+            $section = $this->db->query("
+                SELECT
+                    *
+                FROM sections
+                WHERE grade = $grade; 
+            ");
+           $_section = $section->result();
+           $sch->section = $_section;
+           foreach ($_section as $sec) {
+               $sched_data = $this->db->query("
+                    SELECT
+                        s.time_id,
+                        s.sec_id,
+                        s.sub_id,
+                        s.teacher_id,
+                        sub.sub_id,
+                        sub.subName,
+                        teach.teacher_id,
+                        teach.title,
+                        teach.lname
+                    FROM schedule s
+                    LEFT JOIN subjects sub
+                    ON s.sub_id = sub.sub_id
+                    LEFT JOIN teachers teach 
+                    ON s.teacher_id = teach.teacher_id
+                    WHERE s.time_id = $sch->time_id
+                    AND s.grade = $grade
+                    AND s.sec_id = $sec->sec_id
+                    GROUP BY s.sub_id,sub.subName,teach.teacher_id
+                ");
+               $_sched = $sched_data->result();
+               $sec->sched_data = $_sched;
+               foreach ($_sched as $sc) {
+                    $days = $this->db->query("
+                        SELECT
+                            day_id
+                        FROM schedule
+                        WHERE time_id = $sch->time_id
+                        AND sub_id = $sc->sub_id
+                        AND grade = $grade
+                        AND sec_id = $sc->sec_id
+                    ");
+                    // $days = $this->db->query("
+                    //     SELECT
+                    //         s.time_id,
+                    //         s.grade,
+                    //         s.sec_id,
+                    //         s.sub_id,
+                    //         d.days
+                    //     FROM schedule s
+                    //     LEFT JOIN days d
+                    //     ON s.day_id = d.day_id
+                    //     WHERE s.time_id = $sch->time_id
+                    //     AND s.sub_id = $sc->sub_id
+                    //     AND s.grade = $grade
+                    //     AND s.sec_id = $sc->sec_id
+                    // ");
+                    $_days = $days->result_array();
+                    $sc->days = $_days;
+               }
+           }
+        }
+        // $schedule['schedule'] = $time->result();
+        // $schedule['sample'] = $sample;
+        return $sched->result();
+        //echo json_encode($sched->result());
+        exit;
+
+        return [];
+    }
+
+    function get_grade_sections()
+    {
+        $this->db->select('*')
+            ->from('sections')
+            ->group_by('grade');
+
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+
+        return [];
+    }
+
     function get_sections(){
         $this->db->select('*');
         $this->db->from('sections');
+        
 
         $query = $this->db->get();
+        
         if ($query->num_rows() > 0) {
             return $query->result();
         }
@@ -236,7 +356,6 @@ class Schedule_model extends CI_Model {
                         time_id
                     FROM schedule
                     WHERE grade = $grade
-                    AND sub_id = $subject
                     AND sec_id = $section -- AND sched_status = 1
                     AND day_id = '".$day."'
                     

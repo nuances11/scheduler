@@ -45,24 +45,43 @@
                                                         <span class="badge badge-success">Active</span>
                                                 <?php } ?>
                                             </td>
-                                            <td><?php echo ucfirst($user->position); ?></td>
+                                            <td>
+                                                <?php
+                                                    if ($user->user_type == '2') {
+                                                        echo ucfirst('principal');
+                                                    }elseif ($user->user_type == '3') {
+                                                        echo ucfirst('head teacher');
+                                                    }elseif ($user->user_type == '1') {
+                                                        echo strtoupper('admin');
+                                                    }
+                                                ?>    
+                                            </td>
                                             <td><?php echo $user->email; ?></td>
                                             <td>
-                                            	<a href="<?php echo base_url();?>user/edit/<?php echo $user->user_id?>" class="btn btn-xs btn-success">
-                                     			<i class="fa fa-pencil"></i> Edit</a>
-                                                <?php
-                                                    if ($user->status == 0) {
-                                                        ?>
-                                                            <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
-                                                            <i class="fa fa-check"></i> Activate</a>
-                                                        <?php
+                                                <?php 
+                                                    if ($user->user_type == '1') {
+                                                        echo '';
                                                     }else{
                                                         ?>
-                                                            <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
-                                                            <i class="fa fa-times"></i> Deactivate</a>
+                                                            <a href="<?php echo base_url();?>user/edit/<?php echo $user->user_id?>" class="btn btn-xs btn-success">
+                                                            <i class="fa fa-pencil"></i> Edit</a>
+                                                            <?php
+                                                                if ($user->status == 0) {
+                                                                    ?>
+                                                                        <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
+                                                                        <i class="fa fa-check"></i> Activate</a>
+                                                                    <?php
+                                                                }else{
+                                                                    ?>
+                                                                        <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
+                                                                        <i class="fa fa-times"></i> Deactivate</a>
+                                                                    <?php
+                                                                }
+                                                            ?>
                                                         <?php
                                                     }
                                                 ?>
+                                            	
                                  			</td>
                                         </tr>
                                     <?php } ?>

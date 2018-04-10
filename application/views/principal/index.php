@@ -10,7 +10,7 @@
 <!-- begin row -->
 <div class="row">
 	<div class="col-md-12">
-        <div class="panel panel-inverse">
+        <div class="panel panel-inverse"> 
             <div class="panel-heading">
                 <!-- <div class="panel-heading-btn">
                     <a href="<?php echo base_url(); ?>student/add" class="btn btn-xs btn-success">
@@ -23,18 +23,19 @@
                 <table id="data-table" class="table table-striped table-bordered" width="100%">
                     <thead>
                         <tr>
-                            <th>Grade - Section</th>
+                            <th>Grade</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($sections as $section) { ?>
                         <tr class="odd gradeX">
-                            <td><?php echo $section->grade . ' - ' . $section->sectionName; ?></td>
+                            <td>Grade <?php echo $section->grade; ?></td>
                             <td>
                                 <a href="<?php echo base_url();?>view/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default">
                                 <i class="fa fa-eye"></i> View</a>
-								<a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default">
+								<!-- <a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default"> -->
+                                <a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>" class="btn btn-xs btn-default">
                                 <i class="fa fa-calendar"></i> View Calendar</a>
                             </td>
                         </tr>

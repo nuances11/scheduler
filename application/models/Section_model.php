@@ -14,6 +14,7 @@ class Section_model extends CI_Model {
     function fetch_sections(){
         $this->db->select('*');
         $this->db->from('sections');
+        $this->db->order_by('grade', 'asc');
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -47,6 +48,11 @@ class Section_model extends CI_Model {
         }
 
         return [];
+    }
+
+    function grade_list()
+    {
+
     }
 
     function section_list()

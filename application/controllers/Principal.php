@@ -9,7 +9,7 @@ class Principal extends CI_Controller {
 		$this->load->model('section_model');
 		$this->load->model('schedule_model');
 		$this->load->model('user_model');
-
+ 
         $styles = array(
 
 		);
@@ -27,12 +27,20 @@ class Principal extends CI_Controller {
 
 	function index()
 	{
-		$this->template->load_sub('sections', $this->section_model->section_list());
+		//$this->template->load_sub('sections', $this->section_model->section_list());
+        $this->template->load_sub('sections', $this->schedule_model->get_grade_sections());
 		$this->template->load('principal/index');
 	}
 
+    function schedule_grade_view($grade){
+        $this->template->load_sub('schedules', $this->schedule_model->get_grade_schedule($grade));
+        $this->template->load_sub('sections', $this->schedule_model->get_grade_section($grade));
+        $this->template->load('principal/schedule_view');
+    }
+
 	function schedule($grade, $section){
 		$this->template->load_sub('schedule', $this->schedule_model->get_schedule($grade, $section));
+
 		$this->template->set_title('Schedule View');
 		$this->template->load('principal/schedule_view');
 	}

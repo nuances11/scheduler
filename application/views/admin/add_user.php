@@ -36,7 +36,7 @@
                                         <select class="form-control" id="select-required" name="title" data-parsley-required="true">
                                             <option value="">Please choose</option>
                                             <option value="Mr" <?php if (set_value('title') == 'Mr') {
-                                            	echo "selected";
+                                             	echo "selected";
                                             }?>>MR.</option>
                                             <option value="Mrs" <?php if (set_value('title') == 'Mrs') {
                                             	echo "selected";
@@ -47,9 +47,17 @@
 
 								<div class="form-group">
 									<label class="control-label col-md-4 col-sm-4" for="fullname">Position:</label>
-									<div class="col-md-6 col-sm-6">
-										<input class="form-control" type="text" value="<?php echo set_value('position');?>" id="fullname" name="position" placeholder="Position" data-parsley-required="true" />
-									</div>
+									 <div class="col-md-6 col-sm-6">
+                                        <select class="form-control" id="select-required" name="position" data-parsley-required="true">
+                                            <option value="">Please choose</option>
+                                            <option value="2" <?php if (set_value('title') == '2') {
+                                            	echo "selected";
+                                            }?>>Principal</option>
+                                            <option value="3" <?php if (set_value('title') == '3') {
+                                            	echo "selected";
+                                            }?>>Head Teacher</option>
+                                        </select>
+                                    </div>
 								</div>
 
 								<div class="form-group">

@@ -35,15 +35,21 @@ class User extends CI_Controller {
     	if ($this->form_validation->run() == FALSE) {
     		$this->template->load('admin/add_user');
     	}else{
+            $position = '';
+            if($this->input->post('position') == '2'){
+                $position = 'Principal';
+            }elseif ($this->input->post('position') == '3') {
+                $position = 'Head Teacher';
+            }
     		$data  = array(
     			'title' => $this->input->post('title'),
-    			'position' => $this->input->post('position'),
+    			'position' => $position,
     			'lname' => $this->input->post('lname'),
     			'fname' => $this->input->post('fname'),
     			'mname' => $this->input->post('mname'),
     			'email' => $this->input->post('email'),
 				'password' => sha1($this->input->post('password')),
-                'user_type' => 2
+                'user_type' => $this->input->post('position')
     		);
     		$result = $this->user_model->save_user($data);
 

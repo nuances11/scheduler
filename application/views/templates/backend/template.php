@@ -124,12 +124,12 @@ if (isset($_SESSION['id'])) {
 						    <span>Dashboard</span>
 					    </a>
 					</li>
-					<li class="has-sub">
+					<!-- <li class="has-sub">
 					    <a href="<?php echo base_url(); ?>principals">
 					        <i class="bg-gradient-red fa fa-user"></i>
 					        <span>Principal</span>
 					    </a>
-					</li>
+					</li> -->
 					<li class="has-sub">
 					    <a href="<?php echo base_url(); ?>users">
 					        <i class="bg-gradient-red fa fa-user"></i>
