@@ -32,7 +32,7 @@
                         <?php foreach ($schedules as $sched) { ?>
                         <tr class="odd gradeX">
                             <td><?php echo $sched->fname . ' ' . $sched->lname;?></td>
-                            <td><a href="<?php echo base_url() . 'view/schedule/grade/' . $sched->grade . '/section/' . $sched->section_id . '/user/' . $sched->user_id ;?>">View Schedule</a></td>
+                            <td><a href="<?php echo base_url() . 'view/schedule/grade/' . $sched->grade;?>">View Schedule</a></td>
                             <td>
                                 <?php
                                 if ($sched->schedule_status == '1') {

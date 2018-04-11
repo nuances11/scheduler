@@ -1,3 +1,8 @@
+<pre>
+	<?php print_r($active_teacher); ?>
+	<?php print_r($active_principal); ?>
+</pre>
+
 <ol class="breadcrumb pull-right">
 	<li><a href="<?php echo base_url(); ?>">Home</a></li>
 	<li class="active">Users</li>
@@ -54,11 +59,11 @@
                                                     }elseif ($user->user_type == '1') {
                                                         echo strtoupper('admin');
                                                     }
-                                                ?>    
+                                                ?>
                                             </td>
                                             <td><?php echo $user->email; ?></td>
                                             <td>
-                                                <?php 
+                                                <?php
                                                     if ($user->user_type == '1') {
                                                         echo '';
                                                     }else{
@@ -66,22 +71,48 @@
                                                             <a href="<?php echo base_url();?>user/edit/<?php echo $user->user_id?>" class="btn btn-xs btn-success">
                                                             <i class="fa fa-pencil"></i> Edit</a>
                                                             <?php
-                                                                if ($user->status == 0) {
-                                                                    ?>
-                                                                        <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
-                                                                        <i class="fa fa-check"></i> Activate</a>
-                                                                    <?php
-                                                                }else{
-                                                                    ?>
-                                                                        <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
-                                                                        <i class="fa fa-times"></i> Deactivate</a>
-                                                                    <?php
-                                                                }
+																if ($user->user_type == '2') {
+																	if ($user->status == '1') {
+																		?>
+																		   <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
+																		   <i class="fa fa-times"></i> Deactivate</a>
+																	   <?php
+																   }elseif ($user->status == '0') {
+																	   if ($active_principal == '1') {
+																		   	echo '';
+																	   }else{
+																		   ?>
+																			   <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
+																			   <i class="fa fa-check"></i> Activate</a>
+																		   <?php
+																	   }
+
+																   }
+																}
+																if ($user->user_type == '3') {
+																	if ($user->status == '1') {
+																		?>
+																		   <a href="<?php echo base_url();?>user/deactivate/<?php echo $user->user_id?>" class="btn btn-xs btn-danger">
+																		   <i class="fa fa-times"></i> Deactivate</a>
+																	   <?php
+																   }elseif ($user->status == '0') {
+																	   if ($active_teacher == '4') {
+																		   	echo '';
+																	   }else{
+																		   ?>
+																			   <a href="<?php echo base_url();?>user/activate/<?php echo $user->user_id?>" class="btn btn-xs btn-default">
+																			   <i class="fa fa-check"></i> Activate</a>
+																		   <?php
+																	   }
+
+																   }
+																}
+
                                                             ?>
                                                         <?php
                                                     }
                                                 ?>
-                                            	
+
                                  			</td>
                                         </tr>
                                     <?php } ?>

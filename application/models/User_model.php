@@ -11,6 +11,34 @@ class User_model extends CI_Model {
         return $this->db->insert('users', $data);
     }
 
+    function fetch_active_teacher()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('user_type', '3');
+        $this->db->where('status', '1');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        }
+
+        return [];
+    }
+
+    function fetch_active_principal()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('user_type', '2');
+        $this->db->where('status', '1');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        }
+
+        return [];
+    }
+
     function fetch_users(){
         $this->db->select('*');
         $this->db->from('users');

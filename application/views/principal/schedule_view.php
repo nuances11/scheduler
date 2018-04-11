@@ -1,6 +1,6 @@
 <!-- <pre>
 <?php //print_r($schedules);?>
-    
+
 </pre> -->
 <ol class="breadcrumb pull-right">
 	<li><a href="javascript:;">Home</a></li>
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <?php foreach($schedules as $sched) : ?>
                             <tr>
                                 <td>
@@ -41,8 +41,8 @@
                                 <?php foreach($sched->section as $sec) :?>
                                     <td class="text-center">
                                         <?php foreach($sec->sched_data as $data) :?>
-                                            <span style="font-size:15px; font-weight:600;"><?php echo strtoupper($data->subName) . '<br/>';?></span>
-                                            
+                                            <span style="font-size:15px; font-weight:600;"><?php echo strtoupper($data->subCode) . '<br/>';?></span>
+
                                             <?php foreach($data->days as $day):?>
                                                 <?php echo $day['day_id'] . '&nbsp;' ;?>
                                             <?php endforeach;?>
@@ -55,8 +55,8 @@
                                 <?php endforeach ;?>
                             </tr>
                         <?php endforeach ;?>
-                        
-                    	
+
+
                     </tbody>
                 </table>
             </div>

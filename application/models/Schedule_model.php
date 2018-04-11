@@ -24,9 +24,72 @@ class Schedule_model extends CI_Model {
         return [];
     }
 
+    function view_submitted_grade_schedule($grade)
+    {
+        $schedule = array();
+        $sched = $this->db->query("
+                SELECT
+                    *
+                FROM time
+            ");
+        foreach ($sched->result() as $sch) {
+            $section = $this->db->query("
+                SELECT
+                    *
+                FROM sections
+                WHERE grade = $grade;
+            ");
+           $_section = $section->result();
+           $sch->section = $_section;
+           foreach ($_section as $sec) {
+               $sched_data = $this->db->query("
+                    SELECT
+                        s.time_id,
+                        s.sec_id,
+                        s.sub_id,
+                        s.teacher_id,
+                        s.sched_status,
+                        sub.sub_id,
+                        sub.subCode,
+                        teach.teacher_id,
+                        teach.title,
+                        teach.lname
+                    FROM schedule s
+                    LEFT JOIN subjects sub
+                    ON s.sub_id = sub.sub_id
+                    LEFT JOIN teachers teach
+                    ON s.teacher_id = teach.teacher_id
+                    WHERE s.time_id = $sch->time_id
+                    AND s.grade = $grade
+                    AND s.sec_id = $sec->sec_id
+                    AND s.sched_status = '2'
+                    GROUP BY s.sub_id,sub.subName,teach.teacher_id
+                ");
+               $_sched = $sched_data->result();
+               $sec->sched_data = $_sched;
+               foreach ($_sched as $sc) {
+                    $days = $this->db->query("
+                        SELECT
+                            day_id
+                        FROM schedule
+                        WHERE time_id = $sch->time_id
+                        AND sub_id = $sc->sub_id
+                        AND grade = $grade
+                        AND sec_id = $sc->sec_id
+                    ");
+                    $_days = $days->result_array();
+                    $sc->days = $_days;
+               }
+           }
+        }
+        return $sched->result();
+        exit;
+
+        return [];
+    }
+
     function get_grade_schedule($grade)
-    {   
-        $sample = array('1', '2', '3');
+    {
         $schedule = array();
         $sched = $this->db->query("
                 SELECT
@@ -48,7 +111,7 @@ class Schedule_model extends CI_Model {
                 SELECT
                     *
                 FROM sections
-                WHERE grade = $grade; 
+                WHERE grade = $grade;
             ");
            $_section = $section->result();
            $sch->section = $_section;
@@ -59,19 +122,21 @@ class Schedule_model extends CI_Model {
                         s.sec_id,
                         s.sub_id,
                         s.teacher_id,
+                        s.sched_status,
                         sub.sub_id,
-                        sub.subName,
+                        sub.subCode,
                         teach.teacher_id,
                         teach.title,
                         teach.lname
                     FROM schedule s
                     LEFT JOIN subjects sub
                     ON s.sub_id = sub.sub_id
-                    LEFT JOIN teachers teach 
+                    LEFT JOIN teachers teach
                     ON s.teacher_id = teach.teacher_id
                     WHERE s.time_id = $sch->time_id
                     AND s.grade = $grade
                     AND s.sec_id = $sec->sec_id
+                    AND s.sched_status = 1
                     GROUP BY s.sub_id,sub.subName,teach.teacher_id
                 ");
                $_sched = $sched_data->result();
@@ -132,10 +197,10 @@ class Schedule_model extends CI_Model {
     function get_sections(){
         $this->db->select('*');
         $this->db->from('sections');
-        
+
 
         $query = $this->db->get();
-        
+
         if ($query->num_rows() > 0) {
             return $query->result();
         }
@@ -179,7 +244,7 @@ class Schedule_model extends CI_Model {
         return [];
     }
 
-    
+
 
     function get_schedule($grade, $section)
     {
@@ -358,7 +423,7 @@ class Schedule_model extends CI_Model {
                     WHERE grade = $grade
                     AND sec_id = $section -- AND sched_status = 1
                     AND day_id = '".$day."'
-                    
+
                 )
             ");
         return $time->result();
@@ -378,23 +443,21 @@ class Schedule_model extends CI_Model {
                     AND sec_id = $section -- AND sched_status = 1
                     AND day_id = '".$day."'
                     AND time_id = $time
-                    
+
                 )
             ");
         return $teacher->result();
     }
 
 
-    function section_schedule($grade, $section)
+    function section_schedule($grade)
     {
         $this->db->select('*')
                 ->from('submitted_schedule')
                 ->join('users','submitted_schedule.user_id = users.user_id', 'LEFT')
-                ->where('submitted_schedule.section_id', $section)
                 ->where('submitted_schedule.grade', $grade)
-                ->group_by('submitted_schedule.user_id', 'submitted_schedule.section_id', 'submitted_schedule.grade');
+                ->group_by('submitted_schedule.user_id', 'submitted_schedule.grade');
         $query = $this->db->get();
-        return $query->result();
         if ($query->num_rows() > 0) {
             return $query->result();
         }
@@ -405,7 +468,7 @@ class Schedule_model extends CI_Model {
     function get_submitted_schedule($id, $grade, $section)
     {
         // echo 'id - ' . $id . ' grade-' . $grade . ' section - '  . $section;
-        // exit; 
+        // exit;
         $this->db->select('*')
                 ->from('schedule')
                 ->join('time','schedule.time_id = time.time_id', 'LEFT')
@@ -422,7 +485,7 @@ class Schedule_model extends CI_Model {
         return [];
     }
 
-    function approve_schedule($id, $grade, $section)
+    function approve_schedule($id, $grade)
     {
         $this->db->select('*')
                 ->from('submitted_schedule')
@@ -435,7 +498,6 @@ class Schedule_model extends CI_Model {
                 'schedule_status' => '0'
             );
 
-            $this->db->where('section_id', $sched->section_id);
             $this->db->where('grade', $sched->grade);
             $res = $this->db->update('submitted_schedule', $data);
             if ($res) {
@@ -450,7 +512,6 @@ class Schedule_model extends CI_Model {
                         'sched_status' => '1'
                     );
 
-                    $this->db->where('sec_id', $sched->section_id);
                     $this->db->where('grade', $sched->grade);
                     $this->db->where('user_id', $id);
                     return $this->db->update('schedule', $sched_status);

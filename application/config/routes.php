@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['admin/change-pass'] = 'admin/change_pass';
-$route['user/change-pass'] = 'userbackend/change_pass'; 
+$route['user/change-pass'] = 'userbackend/change_pass';
 $route['principal/change-pass'] = 'principal/change_pass';
 $route['user/edit-profile'] = 'userbackend/edit_profile';
 $route['principal/edit-profile'] = 'principal/edit_profile';
@@ -87,8 +87,10 @@ $route['principal/schedule/grade/(:num)'] = 'principal/schedule_grade_view/$1';
 
 $route['principal'] = 'principal';
 $route['view/grade/(:num)/section/(:num)'] = 'principal/view_grade_section/$1/$2';
+$route['view/grade/(:num)'] = 'principal/view_grade_sched/$1';
 $route['approve/sched'] = 'principal/approve_schedule';
 $route['view/schedule/grade/(:num)/section/(:num)/user/(:num)'] = 'principal/view_submitted_schedule/$1/$2/$3';
+$route['view/schedule/grade/(:num)'] = 'principal/view_submitted_grade_schedule/$1';
 $route['settings'] = 'principal/settings';
 
 $route['default_controller'] = 'home';

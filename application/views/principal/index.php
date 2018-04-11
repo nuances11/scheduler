@@ -1,6 +1,6 @@
 
 <ol class="breadcrumb pull-right">
-	<li><a href="javascript:;">Home</a></li> 
+	<li><a href="javascript:;">Home</a></li>
 	<li class="active">Dashboard</li>
 </ol>
 <!-- end breadcrumb -->
@@ -10,7 +10,7 @@
 <!-- begin row -->
 <div class="row">
 	<div class="col-md-12">
-        <div class="panel panel-inverse"> 
+        <div class="panel panel-inverse">
             <div class="panel-heading">
                 <!-- <div class="panel-heading-btn">
                     <a href="<?php echo base_url(); ?>student/add" class="btn btn-xs btn-success">
@@ -32,7 +32,7 @@
                         <tr class="odd gradeX">
                             <td>Grade <?php echo $section->grade; ?></td>
                             <td>
-                                <a href="<?php echo base_url();?>view/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default">
+                                <a href="<?php echo base_url();?>view/grade/<?php echo $section->grade;?>" class="btn btn-xs btn-default">
                                 <i class="fa fa-eye"></i> View</a>
 								<!-- <a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>/section/<?php echo $section->sec_id;?>" class="btn btn-xs btn-default"> -->
                                 <a href="<?php echo base_url();?>principal/schedule/grade/<?php echo $section->grade;?>" class="btn btn-xs btn-default">

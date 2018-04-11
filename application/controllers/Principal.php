@@ -9,7 +9,7 @@ class Principal extends CI_Controller {
 		$this->load->model('section_model');
 		$this->load->model('schedule_model');
 		$this->load->model('user_model');
- 
+
         $styles = array(
 
 		);
@@ -52,18 +52,32 @@ class Principal extends CI_Controller {
         $this->template->load('principal/submitted_schedule');
     }
 
-	function view_grade_section($grade, $section) 
+	function view_submitted_grade_schedule($grade)
+    {
+		$this->template->load_sub('schedules', $this->schedule_model->view_submitted_grade_schedule($grade));
+		$this->template->load_sub('sections', $this->schedule_model->get_grade_section($grade));
+        //$this->template->load_sub('schedule', $this->schedule_model->get_submitted_schedule($id,$grade, $section));
+        $this->template->set_title('Schedule View');
+        $this->template->load('principal/submitted_schedule');
+    }
+
+	function view_grade_section($grade, $section)
 	{
 		$this->template->load_sub('schedules', $this->schedule_model->section_schedule($grade, $section));
+		$this->template->load('principal/section-schedule');
+	}
+
+	function view_grade_sched($grade)
+	{
+		$this->template->load_sub('schedules', $this->schedule_model->section_schedule($grade));
 		$this->template->load('principal/section-schedule');
 	}
 
 	function approve_schedule(){
 		$id = $this->input->post('id');
 		$grade = $this->input->post('grade');
-		$section = $this->input->post('section');
 
-		$result = $this->schedule_model->approve_schedule($id, $grade, $section);
+		$result = $this->schedule_model->approve_schedule($id, $grade);
 		if ($result) {
 			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Schedule approved!<span class="close" data-dismiss="alert">×</span></div>');
 			echo json_encode(array('success' => TRUE));

@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('student_model');
-        $this->load->model('section_model'); 
+        $this->load->model('section_model');
         $this->load->model('subject_model');
         $this->load->model('teacher_model');
 		$this->load->model('principal_model');
@@ -106,6 +106,8 @@ class Admin extends CI_Controller {
 
 	function users(){
 		$this->template->load_sub('users', $this->user_model->fetch_users());
+		$this->template->load_sub('active_teacher', $this->user_model->fetch_active_teacher());
+		$this->template->load_sub('active_principal', $this->user_model->fetch_active_principal());
 		$this->template->load('admin/users');
 	}
 

@@ -7,7 +7,6 @@ $(function() {
         var formData = {
             'id' : id,
             'grade' : grade,
-            'section' : section,
         }
 
         $.ajax({
