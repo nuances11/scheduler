@@ -6,6 +6,23 @@
 	<li><a href="javascript:;">Home</a></li>
 	<li class="active">Dashboard</li>
 </ol>
+<script language="javascript" type="text/javascript">
+    function printView(divID) {
+        var divElements = document.getElementById(divID).innerHTML;
+        var oldPage = document.body.innerHTML;
+
+        document.body.innerHTML = 
+          "<html><head><title></title></head><body>" + 
+          divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+    }
+</script>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
 <h1 class="page-header">Dashboard </h1>
@@ -18,6 +35,7 @@
                 <div class="panel-heading-btn">
                     <a href="<?php echo base_url(); ?>principal" class="btn btn-xs btn-success">
                      <i class="fa fa-pencil"></i> Back</a>
+                    <a href="?print" class="btn btn-xs btn-primary" onclick="javascript:printView('viewprint')"><i class="fa fa-print"></i> Print</a>
                 </div>
                 <h4 class="panel-title">Schedule</h4>
             </div>
@@ -59,6 +77,47 @@
 
                     </tbody>
                 </table>
+                <!-- PRINT SECTION -->
+                <div class="hidden" id="viewprint">
+                    <h3 class="text-center">Schedules List</h3>
+                    <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">TIME</th>
+                            <?php foreach ($sections as $section) : ?>
+                                <th class="text-center"><?= $section->sectionName ?></th>
+                            <?php endforeach;?>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach($schedules as $sched) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $sched->time_start . ' - ' . $sched->time_end;?>
+                                </td>
+                                <?php foreach($sched->section as $sec) :?>
+                                    <td class="text-center">
+                                        <?php foreach($sec->sched_data as $data) :?>
+                                            <span style="font-size:15px; font-weight:600;"><?php echo strtoupper($data->subCode) . '<br/>';?></span>
+
+                                            <?php foreach($data->days as $day):?>
+                                                <?php echo $day['day_id'] . '&nbsp;' ;?>
+                                            <?php endforeach;?>
+                                            </br>
+                                            <?php echo '(' . $data->title . '. ' . $data->lname . ')'; ?>
+                                            </br>
+                                            </br>
+                                        <?php endforeach ;?>
+                                    </td>
+                                <?php endforeach ;?>
+                            </tr>
+                        <?php endforeach ;?>
+
+
+                    </tbody>
+                </table>
+                </div>
             </div>
         </div>
         <!-- end panel -->
