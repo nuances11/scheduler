@@ -24,6 +24,24 @@ if (isset($_SESSION['id'])) {
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url();?>assets/frontend/assets/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="<?php echo base_url();?>assets/frontend/assets/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url();?>assets/frontend/assets/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url();?>assets/frontend/assets/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assets/frontend/assets/icon/favicon-16x16.png">
+	<link rel="manifest" href="<?php echo base_url();?>assets/frontend/assets/icon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="<?php echo base_url();?>assets/frontend/assets/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="<?php echo base_url(); ?>assets/frontend/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -51,19 +69,22 @@ if (isset($_SESSION['id'])) {
                     <span class="icon-bar"></span>
                 </button>
                 <a href="<?php echo base_url(); ?>home" class="navbar-brand">
-                    <span class="navbar-logo"></span>
+                    <!-- <span class="navbar-logo"></span> -->
+
                     <span class="brand-text">
-                        LUAKAN NATIONAL HIGH SCHOOL
+						<img width="40" src="<?php echo base_url();?>assets/img/lnhs-logo.png" alt="">
+                        LUAKAN NATIONAL HIGH SCHOOL -
+						<strong>School ID - 300708</strong>
                     </span>
+
                 </a>
             </div>
             <!-- end navbar-header -->
             <!-- begin #header-navbar -->
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-					<li><strong>School ID - 300708</strong></li>
-                    <!-- <li><a href="<?php echo base_url(); ?>home">Home</a></li>
-                    <li><a href="javascript:;">About Us</a></li> -->
+					<!-- <li><strong>School ID - 300708</strong></li> -->
+                    <li><a href="<?php echo base_url(); ?>login">Login</a></li>
                 </ul>
             </div>
             <!-- end #header-navbar -->
@@ -73,23 +94,27 @@ if (isset($_SESSION['id'])) {
     <!-- end #header -->
 
     <!-- begin search-banner -->
-    <div class="search-banner has-bg">
+    <!-- <div class="search-banner has-bg"> -->
         <!-- begin bg-cover -->
-        <div class="bg-cover">
-            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/cover.jpg" alt="" />
-        </div>
+        <!-- <div class="bg-cover">
+            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/cover4.jpg" alt="" />
+        </div> -->
+		<div class="container">
+			<img src="<?php echo base_url(); ?>assets/frontend/assets/img/cover4.jpg" alt="" />
+
+		</div>
         <!-- end bg-cover -->
         <!-- begin container -->
-        <div class="container">
-            <h1>SCHEDULE LIST</h1>
+        <!-- <div class="container">
+            <h1><?php echo strtoupper($title);?></h1>
             <h5 class="text-center"></h5>
-        </div>
+        </div> -->
         <!-- end container -->
-    </div>
+    <!-- </div> -->
     <!-- end search-banner -->
 
     <!-- begin content -->
-    <div class="content">
+    <div class="content" style="padding:0 !important;">
         <!-- begin container -->
         <div class="container">
             <!-- begin panel-forum -->

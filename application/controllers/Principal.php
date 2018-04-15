@@ -90,6 +90,18 @@ class Principal extends CI_Controller {
 		// }
 	}
 
+	function update_sched()
+	{
+		$grade = $this->input->post('grade');
+
+		$result = $this->schedule_model->update_schedule($grade);
+		if ($result) {
+			echo json_encode(array('success' => TRUE));
+		}else{
+			echo json_encode(array('success' => FALSE));
+		}
+	}
+
 	function settings()
 	{
 		$this->template->load_sub('seting', $this->principal_model->get_setting());

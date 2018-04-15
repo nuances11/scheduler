@@ -16,6 +16,11 @@
                     <a href="<?php echo base_url(); ?>student/add" class="btn btn-xs btn-success">
                      <i class="fa fa-pencil"></i> Add new student</a>
                 </div> -->
+				<div class="panel-heading-btn">
+					<a href="<?php echo base_url(); ?>principal" class="btn btn-xs btn-success">
+					 <i class="fa fa-pencil"></i> Back</a>
+                </div>
+
                 <h4 class="panel-title">Schedule List</h4>
             </div>
             <div class="panel-body">

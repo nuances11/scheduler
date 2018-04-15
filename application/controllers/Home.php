@@ -27,6 +27,13 @@ class Home extends CI_Controller {
 		$this->template->load('home/index');
 	}
 
+	function schedule_grade_view($grade){
+		$this->template->set_title('Schedule - Grade ' . $grade);
+        $this->template->load_sub('schedules', $this->schedule_model->get_grade_schedule($grade));
+        $this->template->load_sub('sections', $this->schedule_model->get_grade_section($grade));
+        $this->template->load('home/schedule_view');
+    }
+
 	function sections_academic($grade){
 		$this->template->set_title('Section/Academic/Track');
 		$this->template->load_sub('sections', $this->section_model->get_sections($grade));

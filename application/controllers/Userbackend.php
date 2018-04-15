@@ -31,6 +31,13 @@ class Userbackend extends CI_Controller {
 		$this->template->load('user/change_pass');
 	}
 
+	function schedule_grade_view($grade)
+	{
+		$this->template->load_sub('schedules', $this->schedule_model->view_submitted_grade_schedule($grade));
+		$this->template->load_sub('sections', $this->schedule_model->get_grade_section($grade));
+        $this->template->load('user/schedule_view');
+	}
+
 	function save_change_pass(){
 
     	$this->form_validation->set_rules('old_pass', 'Old Password', 'required|min_length[8]');
@@ -191,7 +198,7 @@ class Userbackend extends CI_Controller {
     function time_select(){
         $grade = $this->input->post('grade');
         $section = $this->input->post('section');
-        $subject = $this->input->post('subject'); 
+        $subject = $this->input->post('subject');
         $day = $this->input->post('day');
         echo json_encode($this->schedule_model->get_available_time($grade, $section, $subject, $day));
     }
@@ -210,7 +217,7 @@ class Userbackend extends CI_Controller {
         $grade = $this->input->post('grade');
         $section = $this->input->post('section');
         $user = $this->input->post('user');
-        
+
         $result = $this->schedule_model->schedule_submit($grade, $section, $user);
         if ($result) {
             echo json_encode(array('success' => TRUE));

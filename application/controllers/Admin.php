@@ -10,6 +10,7 @@ class Admin extends CI_Controller {
         $this->load->model('subject_model');
         $this->load->model('teacher_model');
 		$this->load->model('principal_model');
+		$this->load->model('schedule_model');
 
         $styles = array(
         	'assets/plugins/fullcalendar/fullcalendar.print.css',
@@ -34,6 +35,31 @@ class Admin extends CI_Controller {
 		$this->template->load_sub('num_subject', $this->user_model->get_total_subject());
 		$this->template->load_sub('num_schedule', $this->user_model->get_total_schedule());
 		$this->template->load('admin/index');
+	}
+
+	function clear_schedule()
+	{
+		$this->template->load('admin/clear_schedule');
+	}
+
+	function delete_schedule(){
+
+    	$this->form_validation->set_rules('admin_pass', 'Admin Password', 'required|min_length[8]');
+    	$this->form_validation->set_rules('cpass', 'Confirm Password', 'required|matches[admin_pass]');
+
+    	if ($this->form_validation->run() == FALSE) {
+    		$this->clear_schedule();
+    	}else{
+    		$result = $this->schedule_model->delete_schedule();
+
+    		if ($result) {
+    			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong> Schedule Cleared<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('admin/clear_schedule', 'refresh');
+    		}else{
+				$this->session->set_flashdata('success', '<div class="alert alert-danger fade in m-b-15"><strong>Failed!</strong> Process failed!<span class="close" data-dismiss="alert">×</span></div>');
+    			redirect('admin/clear_schedule', 'refresh');
+			}
+    	}
 	}
 
 	function change_pass()

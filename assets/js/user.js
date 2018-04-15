@@ -112,7 +112,7 @@ $(function() {
    	})
 
    $('#add_sched_btn').hide();
-   
+
    $('#check_sched').click(function(){
 
    		var base_url = $('#select_grade').data('url');
@@ -146,7 +146,7 @@ $(function() {
 		  			for (var i = 0; i < data.length; i++) {
 						item += '<tbody><tr><td>' + data[i].time_start + '-' + data[i].time_end + '</td><td>'+ data[i].day_id +'</td><td>'+ data[i].subName +'</td><td>'+ data[i].title + '. '+ data[i].lname +'</td></tr></tbody>';
 					}
-					
+
 		  		}else{
 		  			item += '<tbody><tr><td colspan="4">No schedule found</td></tr></tbody>';
 		  		}
@@ -177,44 +177,46 @@ $(function() {
    $('#get_sched').click(function(){
    		var base_url = $('#select_grade').data('url');
    		var grade = $('#select_grade').val();
-   		var section = $('#section_select').val();
-   		var schedule_table = $('#my_schedule');
-   		var available = '';
-   		var item = '';
-   		var day = '';
-   		var formData = {
-   			'grade' : grade,
-   			'section' : section
-   		}
 
-   		// Get Scheduled Subject
-   		$.ajax({
-			type: "POST",
-		  	url: base_url + "get_my_schedule",
-		  	data: formData,
-		  	dataType: "JSON",
-		  	success: function(data){
-				console.log(data);
-		  		item += '<thead><tr><th>Time</th><th>Day</th><th>Subject</th><th>Teacher</th><th>Action</th></tr></thead>';
-		  		if(data.length > 0){
-		  			$('#submit_sched').show();
-		  			for (var i = 0; i < data.length; i++) {
-						if (data[i].sched_status == '0') {
-							var del = 'Delete';
-
-						}else{
-							var del = '';
-						}
-						item += '<tbody><tr><td>' + data[i].time_start + '-' + data[i].time_end + '</td><td>'+ data[i].day_id +'</td><td>'+ data[i].subName +'</td><td>'+ data[i].title + '. '+ data[i].lname + '</td><td><a href=' + base_url + 'schedule/delete/' +  data[i].id + '>' + del + '</a></td></tr></tbody>';
-					}
-		  		}else{
-		  			$('#submit_sched').hide();
-		  			item += '<tbody><tr><td colspan="4">No schedule found</td></tr></tbody>';
-		  		}
-
-				schedule_table.html(item);
-			}
-		});
+		window.location.href = base_url + "user/grade/" + grade;
+   		// var section = $('#section_select').val();
+   		// var schedule_table = $('#my_schedule');
+   		// var available = '';
+   		// var item = '';
+   		// var day = '';
+   		// var formData = {
+   		// 	'grade' : grade,
+   		// 	'section' : section
+   		// }
+		//
+   		// // Get Scheduled Subject
+   		// $.ajax({
+		// 	type: "POST",
+		//   	url: base_url + "get_my_schedule",
+		//   	data: formData,
+		//   	dataType: "JSON",
+		//   	success: function(data){
+		// 		console.log(data);
+		//   		item += '<thead><tr><th>Time</th><th>Day</th><th>Subject</th><th>Teacher</th><th>Action</th></tr></thead>';
+		//   		if(data.length > 0){
+		//   			$('#submit_sched').show();
+		//   			for (var i = 0; i < data.length; i++) {
+		// 				if (data[i].sched_status == '0') {
+		// 					var del = 'Delete';
+		//
+		// 				}else{
+		// 					var del = '';
+		// 				}
+		// 				item += '<tbody><tr><td>' + data[i].time_start + '-' + data[i].time_end + '</td><td>'+ data[i].day_id +'</td><td>'+ data[i].subName +'</td><td>'+ data[i].title + '. '+ data[i].lname + '</td><td><a href=' + base_url + 'schedule/delete/' +  data[i].id + '>' + del + '</a></td></tr></tbody>';
+		// 			}
+		//   		}else{
+		//   			$('#submit_sched').hide();
+		//   			item += '<tbody><tr><td colspan="4">No schedule found</td></tr></tbody>';
+		//   		}
+		//
+		// 		schedule_table.html(item);
+		// 	}
+		// });
 
    })
 

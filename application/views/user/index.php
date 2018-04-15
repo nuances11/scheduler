@@ -46,13 +46,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4">Section/Academic<br/>/Track:</label>
                         <div class="col-md-6 col-sm-6">
                             <select class="form-control" id="section_select" name="sec_id" data-parsley-required="true">
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label class="control-label col-md-4 col-sm-4"></label>

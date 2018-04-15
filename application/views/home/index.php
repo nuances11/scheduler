@@ -18,7 +18,7 @@
                     <h4 class="title">GRADE - 7</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/7" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/7" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->
@@ -36,7 +36,7 @@
                     <h4 class="title">GRADE - 8</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/8" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/8" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->
@@ -54,7 +54,7 @@
                     <h4 class="title">GRADE - 9</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/9" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/9" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->
@@ -72,7 +72,7 @@
                     <h4 class="title">GRADE - 10</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/10" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/10" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->
@@ -90,7 +90,7 @@
                     <h4 class="title">GRADE - 11</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/11" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/11" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->
@@ -108,7 +108,7 @@
                     <h4 class="title">GRADE - 12</h4>
                 </div>
                 <div class="latest-post pull right">
-                    <a href="<?php echo base_url(); ?>sections-academic/12" class="btn btn-warning">View Section/Academic/Track</a>
+                    <a href="<?php echo base_url(); ?>grade/12" class="btn btn-warning">View Schedule</a>
                 </div>
             </div>
             <!-- end info-container -->

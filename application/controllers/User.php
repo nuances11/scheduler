@@ -5,7 +5,8 @@ class User extends CI_Controller {
 	function __construct(){
         parent::__construct();
 
-        $this->load->model('user_model');
+		$this->load->model('user_model');
+        $this->load->model('schedule_model');
 
         $styles = array(
 

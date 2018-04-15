@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['grade/(:num)'] = 'home/schedule_grade_view/$1';
+$route['user/grade/(:num)'] = 'userbackend/schedule_grade_view/$1'; 
+
 $route['admin/change-pass'] = 'admin/change_pass';
 $route['user/change-pass'] = 'userbackend/change_pass';
 $route['principal/change-pass'] = 'principal/change_pass';
@@ -16,6 +19,8 @@ $route['delete/student/(:num)'] = 'admin/student_delete/$1';
 $route['delete/section/(:num)'] = 'admin/section_delete/$1';
 $route['delete/subject/(:num)'] = 'admin/subject_delete/$1';
 $route['delete/teacher/(:num)'] = 'admin/teacher_delete/$1';
+$route['admin/clear_schedule'] = 'admin/clear_schedule';
+$route['admin/delete_schedule'] = 'admin/delete_schedule';
 
 $route['login'] = 'admin/login';
 $route['logout'] = 'home/logout';
@@ -92,6 +97,7 @@ $route['approve/sched'] = 'principal/approve_schedule';
 $route['view/schedule/grade/(:num)/section/(:num)/user/(:num)'] = 'principal/view_submitted_schedule/$1/$2/$3';
 $route['view/schedule/grade/(:num)'] = 'principal/view_submitted_grade_schedule/$1';
 $route['settings'] = 'principal/settings';
+$route['update/sched'] = 'principal/update_sched';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = '';

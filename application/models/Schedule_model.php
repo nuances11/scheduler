@@ -138,6 +138,7 @@ class Schedule_model extends CI_Model {
                     AND s.sec_id = $sec->sec_id
                     AND s.sched_status = 1
                     GROUP BY s.sub_id,sub.subName,teach.teacher_id
+                    ORDER BY s.sub_id ASC
                 ");
                $_sched = $sched_data->result();
                $sec->sched_data = $_sched;
@@ -151,28 +152,11 @@ class Schedule_model extends CI_Model {
                         AND grade = $grade
                         AND sec_id = $sc->sec_id
                     ");
-                    // $days = $this->db->query("
-                    //     SELECT
-                    //         s.time_id,
-                    //         s.grade,
-                    //         s.sec_id,
-                    //         s.sub_id,
-                    //         d.days
-                    //     FROM schedule s
-                    //     LEFT JOIN days d
-                    //     ON s.day_id = d.day_id
-                    //     WHERE s.time_id = $sch->time_id
-                    //     AND s.sub_id = $sc->sub_id
-                    //     AND s.grade = $grade
-                    //     AND s.sec_id = $sc->sec_id
-                    // ");
                     $_days = $days->result_array();
                     $sc->days = $_days;
                }
            }
         }
-        // $schedule['schedule'] = $time->result();
-        // $schedule['sample'] = $sample;
         return $sched->result();
         //echo json_encode($sched->result());
         exit;
@@ -180,11 +164,17 @@ class Schedule_model extends CI_Model {
         return [];
     }
 
+    function delete_schedule()
+    {
+        return $this->db->truncate('schedule');
+    }
+
     function get_grade_sections()
     {
         $this->db->select('*')
             ->from('sections')
-            ->group_by('grade');
+            ->group_by('grade')
+            ->order_by('grade', 'asc');
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -456,7 +446,8 @@ class Schedule_model extends CI_Model {
                 ->from('submitted_schedule')
                 ->join('users','submitted_schedule.user_id = users.user_id', 'LEFT')
                 ->where('submitted_schedule.grade', $grade)
-                ->group_by('submitted_schedule.user_id', 'submitted_schedule.grade');
+                ->group_by('submitted_schedule.user_id', 'submitted_schedule.grade')
+                ->order_by('submitted_schedule.grade', 'asc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -483,6 +474,33 @@ class Schedule_model extends CI_Model {
         }
 
         return [];
+    }
+
+    function update_schedule($grade)
+    {
+        $data = array(
+            'schedule_status' => 0
+        );
+        $this->db->where('grade', $grade);
+        $res = $this->db->update('submitted_schedule', $data);
+        if ($res) {
+            $query = $this->db->query("
+                SELECT *
+                FROM schedule
+                WHERE grade = $grade
+                AND sched_status = 1
+            ");
+            if ($query->num_rows() > 0) {
+                foreach ($query->result() as $sched) {
+                    $sched_status = array(
+                        'sched_status' => '2'
+                    );
+
+                    $this->db->where('grade', $grade);
+                    return $this->db->update('schedule', $sched_status);
+                }
+            }
+        }
     }
 
     function approve_schedule($id, $grade)
