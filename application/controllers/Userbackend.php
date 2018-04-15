@@ -168,7 +168,8 @@ class Userbackend extends CI_Controller {
 
 		if ($result) {
 			$this->session->set_flashdata('success', '<div class="alert alert-success fade in m-b-15"><strong>Success!</strong>Schedule successfully deleted!<span class="close" data-dismiss="alert">×</span></div>');
-			redirect('user', 'refresh');
+			// redirect('user', 'refresh');
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
 
@@ -215,10 +216,11 @@ class Userbackend extends CI_Controller {
     function schedule_submit()
     {
         $grade = $this->input->post('grade');
-        $section = $this->input->post('section');
+        //$section = $this->input->post('section');
         $user = $this->input->post('user');
 
-        $result = $this->schedule_model->schedule_submit($grade, $section, $user);
+		$result = $this->schedule_model->schedule_submit($grade, $user);
+        // $result = $this->schedule_model->schedule_submit($grade, $section, $user);
         if ($result) {
             echo json_encode(array('success' => TRUE));
         }else{

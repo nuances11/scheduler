@@ -44,6 +44,7 @@ class Schedule_model extends CI_Model {
            foreach ($_section as $sec) {
                $sched_data = $this->db->query("
                     SELECT
+                        s.id,
                         s.time_id,
                         s.sec_id,
                         s.sub_id,
@@ -62,7 +63,7 @@ class Schedule_model extends CI_Model {
                     WHERE s.time_id = $sch->time_id
                     AND s.grade = $grade
                     AND s.sec_id = $sec->sec_id
-                    AND s.sched_status = '2'
+                    -- AND s.sched_status = '2'
                     GROUP BY s.sub_id,sub.subName,teach.teacher_id
                 ");
                $_sched = $sched_data->result();
@@ -430,7 +431,7 @@ class Schedule_model extends CI_Model {
                     FROM schedule
                     WHERE grade = $grade
                     AND sub_id = $subject
-                    AND sec_id = $section -- AND sched_status = 1
+                    -- AND sec_id = $section -- AND sched_status = 1
                     AND day_id = '".$day."'
                     AND time_id = $time
 
@@ -538,13 +539,13 @@ class Schedule_model extends CI_Model {
         }
     }
 
-    function schedule_submit($grade, $section, $user)
+    function schedule_submit($grade, $user)
     {
         $res = FALSE;
         $this->db->select('*')
                 ->from('schedule')
                 ->where('user_id', $user)
-                ->where('sec_id', $section)
+                // ->where('sec_id', $section)
                 ->where('grade', $grade)
                 ->where('sched_status', 0);
         $query = $this->db->get();
@@ -560,7 +561,8 @@ class Schedule_model extends CI_Model {
             if ($res == TRUE) {
                 $data = array(
                     'grade' => $grade,
-                    'section_id' => $section,
+                    'section_id' => 0,
+                    // 'section_id' => $section,
                     'user_id' => $user,
                 );
 

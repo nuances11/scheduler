@@ -11,12 +11,12 @@ class Section extends CI_Controller {
 
 		);
 		$js = array(
-			
+
 		);
-		
+
 		$this->template->set_additional_css($styles);
 		$this->template->set_additional_js($js);
-        
+
         //$this->_checkLogin();
         $this->template->set_title('Admin');
         $this->template->set_template('backend');

@@ -173,12 +173,13 @@ $(function() {
    $('#teacher_select').change(function(){
    		$('#add_sched_btn').show();
    })
-   $('#submit_sched').hide();
+   // $('#submit_sched').hide();
    $('#get_sched').click(function(){
    		var base_url = $('#select_grade').data('url');
    		var grade = $('#select_grade').val();
-
-		window.location.href = base_url + "user/grade/" + grade;
+		if (grade) {
+			window.location.href = base_url + "user/grade/" + grade;
+		}
    		// var section = $('#section_select').val();
    		// var schedule_table = $('#my_schedule');
    		// var available = '';
@@ -244,12 +245,12 @@ $(function() {
    $('#submit_sched').click(function(){
    		var base_url = $(this).data('url');
    		var user = $(this).data('user');
-   		var grade = $('#select_grade').val();
-   		var section = $('#section_select').val();
+   		var grade = $(this).data('grade');
+   		//var section = $('#section_select').val();
    		var formData = {
    			'user' : user,
    			'grade' : grade,
-   			'section' : section
+   			//'section' : section
    		}
 
    		$.ajax({

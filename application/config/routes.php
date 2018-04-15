@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['grade/(:num)'] = 'home/schedule_grade_view/$1';
-$route['user/grade/(:num)'] = 'userbackend/schedule_grade_view/$1'; 
+$route['user/grade/(:num)'] = 'userbackend/schedule_grade_view/$1';
 
 $route['admin/change-pass'] = 'admin/change_pass';
 $route['user/change-pass'] = 'userbackend/change_pass';
@@ -86,7 +86,7 @@ $route['principal/edit/(:num)'] = 'admin/edit_principal/$1';
 $route['principal/update'] = 'principal/update_principal';
 $route['principal/activate/(:num)'] = 'principal/activate_principal/$1';
 $route['principal/deactivate/(:num)'] = 'principal/deactivate_principal/$1';
-$route['principal/schedule/grade/(:num)/section/(:num)'] = 'principal/schedule/$1/$2';
+$route['principal/schedule/grade/(:num)/section/(:num)'] = 'principal/schedule/$1/$2'; 
 
 $route['principal/schedule/grade/(:num)'] = 'principal/schedule_grade_view/$1';
 

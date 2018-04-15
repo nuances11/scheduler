@@ -1,5 +1,5 @@
 <!-- <pre>
-<?php //print_r($schedules);?>
+<?php print_r($schedules);?>
 
 </pre> -->
 <ol class="breadcrumb pull-right">
@@ -13,9 +13,11 @@
 <!-- begin row -->
 <div class="row">
 	<div class="col-md-12">
+		<?php echo $this->session->flashdata('success'); ?>
         <div class="panel panel-inverse">
             <div class="panel-heading">
                 <div class="panel-heading-btn">
+					<button class="btn btn-xs btn-primary" data-grade="<?php echo $this->uri->segment(3);?>" id="submit_sched" data-url="<?php echo base_url();?>" data-user="<?php echo $_SESSION['id'];?>">Submit Schedule</button>
                     <a href="<?php echo base_url(); ?>user" class="btn btn-xs btn-success">
                      <i class="fa fa-pencil"></i> Back</a>
 					 <!-- <a href="javascript:void(0)" id="update_sched" data-url="<?php echo base_url();?>" data-grade="<?php echo $this->uri->segment(4);?>" class="btn btn-xs btn-warning">Update Schedule</a> -->
@@ -51,7 +53,16 @@
                                             </br>
                                             <?php echo '(' . $data->title . '. ' . $data->lname . ')'; ?>
                                             </br>
-                                            </br>
+                                            <?php
+											if ($data->sched_status == 0) {
+												?>
+													<a href="<?php echo base_url();?>schedule/delete/<?php echo $data->id;?>">Delete</a>
+												<?php
+											}
+											?>
+											</br>
+											</br>
+
                                         <?php endforeach ;?>
                                     </td>
                                 <?php endforeach ;?>
